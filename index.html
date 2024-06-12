@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título del Video - YouTube</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <form action="https://www.youtube.com/results" method="get">
+                <label for="search-input">Buscar en YouTube:</label>
+                <input type="text" id="search-input" name="search_query" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="Video de YouTube" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <div>
+                <h1>Título del Video</h1>
+                <h2>Nombre del Canal</h2>
+                <p>Descripción del video...</p>
+            </div>
+
+            <section>
+                <h2>Comentarios</h2>
+                <div>
+                    <strong>Usuario 1</strong> <time datetime="2023-06-12">12 de junio de 2023</time>
+                    <p>Este es un comentario de ejemplo.</p>
+                </div>
+                <div>
+                    <strong>Usuario 2</strong> <time datetime="2023-06-11">11 de junio de 2023</time>
+                    <p>Otro comentario de ejemplo.</p>
+                </div>
+                <div>
+                    <strong>Usuario 3</strong> <time datetime="2023-06-10">10 de junio de 2023</time>
+                    <p>Comentario adicional de ejemplo.</p>
+                </div>
+            </section>
+        </section>
+
+        <aside>
+            <h2>Videos Recomendados</h2>
+            <section>
+                <img src="thumbnail1.jpg" alt="Miniatura del video 1">
+                <h3>Título del Video 1</h3>
+                <p>Nombre del Canal 1</p>
+            </section>
+            <section>
+                <img src="thumbnail2.jpg" alt="Miniatura del video 2">
+                <h3>Título del Video 2</h3>
+                <p>Nombre del Canal 2</p>
+            </section>
+            <!-- Agrega más secciones de videos recomendados aquí -->
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 YouTube</p>
+    </footer>
+</body>
+</html>
