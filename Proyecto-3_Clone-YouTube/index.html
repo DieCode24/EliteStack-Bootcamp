@@ -1,42 +1,69 @@
 <!DOCTYPE html>
+<!-- Declaración de tipo de documento HTML5 -->
 <html lang="en">
+<!-- Etiqueta html con atributo lang="en" para indicar que el idioma del contenido es inglés -->
 <head>
+    <!-- Sección head para metadatos e información sobre el documento -->
     <meta charset="UTF-8">
+    <!-- Especifica la codificación de caracteres utilizada en el documento -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título del Video - YouTube</title>
+    <!-- Configuración de viewport para dispositivos móviles -->
+    <title>24 horas de pantalla negra HD - YouTube</title>
+    <!-- Título de la página visible en la pestaña del navegador -->
 </head>
 <body>
+    <!-- Sección body para el contenido visible de la página -->
     <header>
+        <!-- Encabezado de la página -->
         <nav>
+            <!-- Navegación de la página -->
             <form action="https://www.youtube.com/results" method="get">
+                <!-- Formulario de búsqueda de YouTube -->
                 <label for="search-input">Buscar en YouTube:</label>
+                <!-- Etiqueta de texto para el campo de búsqueda -->
                 <input type="text" id="search-input" name="search_query" placeholder="Buscar...">
+                <!-- Campo de entrada de texto para la búsqueda -->
                 <button type="submit">Buscar</button>
+                <!-- Botón para enviar la búsqueda -->
             </form>
         </nav>
     </header>
 
     <main>
+        <!-- Contenido principal de la página -->
         <section>
+            <!-- Sección para el video principal -->
             <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="Video de YouTube" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!-- Iframe para incrustar el video de YouTube -->
 
             <div>
+                <!-- Contenedor para información del video -->
                 <h1>Título del Video</h1>
+                <!-- Título del video -->
                 <h2>Nombre del Canal</h2>
+                <!-- Nombre del canal que publicó el video -->
                 <p>Descripción del video...</p>
+                <!-- Descripción del video -->
             </div>
 
             <section>
+                <!-- Sección para los comentarios del video -->
                 <h2>Comentarios</h2>
+                <!-- Encabezado de la sección de comentarios -->
                 <div>
+                    <!-- Contenedor para un comentario -->
                     <strong>Usuario 1</strong> <time datetime="2023-06-12">12 de junio de 2023</time>
+                    <!-- Nombre de usuario y fecha del comentario -->
                     <p>Este es un comentario de ejemplo.</p>
+                    <!-- Texto del comentario -->
                 </div>
                 <div>
+                    <!-- Contenedor para otro comentario -->
                     <strong>Usuario 2</strong> <time datetime="2023-06-11">11 de junio de 2023</time>
                     <p>Otro comentario de ejemplo.</p>
                 </div>
                 <div>
+                    <!-- Contenedor para un comentario adicional -->
                     <strong>Usuario 3</strong> <time datetime="2023-06-10">10 de junio de 2023</time>
                     <p>Comentario adicional de ejemplo.</p>
                 </div>
@@ -44,13 +71,20 @@
         </section>
 
         <aside>
+            <!-- Barra lateral para videos recomendados -->
             <h2>Videos Recomendados</h2>
+            <!-- Encabezado de la sección de videos recomendados -->
             <section>
+                <!-- Sección para un video recomendado -->
                 <img src="thumbnail1.jpg" alt="Miniatura del video 1">
+                <!-- Imagen de la miniatura del video -->
                 <h3>Título del Video 1</h3>
+                <!-- Título del video recomendado -->
                 <p>Nombre del Canal 1</p>
+                <!-- Nombre del canal que publicó el video recomendado -->
             </section>
             <section>
+                <!-- Sección para otro video recomendado -->
                 <img src="thumbnail2.jpg" alt="Miniatura del video 2">
                 <h3>Título del Video 2</h3>
                 <p>Nombre del Canal 2</p>
@@ -60,7 +94,9 @@
     </main>
 
     <footer>
+        <!-- Pie de página -->
         <p>&copy; 2023 YouTube</p>
+        <!-- Información de copyright -->
     </footer>
 </body>
 </html>
