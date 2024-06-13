@@ -3,7 +3,7 @@
 
 ## BootCamp FullStack.
 
-## Profesor ⇒ **Juan Andres Garcia Moreno.**
+## Ingeniero a cargo del proyecto ⇒ **Adrián Fernando Gaitán Londoño.**
 
 ## Elaborado por:
 
