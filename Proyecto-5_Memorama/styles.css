@@ -123,3 +123,23 @@ h1 {
 .board:nth-of-type(2) .card:nth-child(14) { order: 3; }
 .board:nth-of-type(2) .card:nth-child(15) { order: 12; }
 .board:nth-of-type(2) .card:nth-child(16) { order: 9; }
+
+/* Animaciones para las cartas 
+@keyframes shuffle1 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(100px, 100px); }
+}
+
+@keyframes shuffle2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100px, -100px); }
+}
+    */
+
+.board .card:nth-child(odd) {
+    animation: shuffle1 2s forwards;
+}
+
+.board .card:nth-child(even) {
+    animation: shuffle2 2s forwards;
+}
