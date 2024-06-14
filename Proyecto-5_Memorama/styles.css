@@ -1,0 +1,127 @@
+/* Estilos básicos y de reinicio */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+}
+
+/* Título del juego */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Tablero del juego */
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Cartas del juego */
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    position: relative;
+}
+
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.card::before {
+    background-color: #4CAF50;
+}
+
+.card::after {
+    background-color: #FFF;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #4CAF50;
+}
+
+.card[data-card-type="1"]::after { content: "A"; }
+.card[data-card-type="2"]::after { content: "B"; }
+.card[data-card-type="3"]::after { content: "C"; }
+.card[data-card-type="4"]::after { content: "D"; }
+.card[data-card-type="5"]::after { content: "E"; }
+.card[data-card-type="6"]::after { content: "F"; }
+.card[data-card-type="7"]::after { content: "G"; }
+.card[data-card-type="8"]::after { content: "H"; }
+
+/* Estilos para las cartas volteadas */
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Botón de reinicio */
+.reset-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.reset-button:hover {
+    background-color: #45a049;
+}
+
+/* Mensaje de victoria */
+.win-message {
+    display: none;
+    font-size: 1.5em;
+    color: #4CAF50;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .board {
+        grid-template-columns: repeat(4, 80px);
+        grid-template-rows: repeat(4, 80px);
+        gap: 8px;
+    }
+
+    .card {
+        width: 80px;
+        height: 80px;
+    }
+}
