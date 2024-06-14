@@ -1,0 +1,93 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 50px;
+    animation: changeState 1s; /* Duración total de 8 segundos */
+    animation-iteration-count: infinite;
+  }
+  
+  .card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+  }
+
+ 
+
+  .card input {
+    display: none;
+  }
+
+  .card label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+
+  .card label::before,
+  .card label::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .card label::before {
+    background-color: #333;
+    transform: rotateY(0deg);
+  }
+
+  .card label::after {
+    content: attr(data-symbol);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    font-size: 2rem;
+    transform: rotateY(180deg);
+  }
+
+  .card input:checked + label {
+    transform: rotateY(180deg);
+  }
+
+  
+  @keyframes changeState {
+    0%, 25% {
+      grid-template-areas: 
+        "card1 card3"
+        "card2 card4";
+    }
+    25.01%, 50% {
+      grid-template-areas: 
+        "card3 card2"
+        "card4 card1";
+    }
+    50.01%, 75% {
+      grid-template-areas: 
+        "card2 card4"
+        "card1 card3";
+    }
+    75.01%, 100% {
+      grid-template-areas: 
+        "card4 card1"
+        "card3 card2";
+    }
+  }
+
+.detener-checkbox:checked ~ .container {
+    animation-play-state: paused;
+}
+  
+  
+  .card1 { grid-area: card1; }
+  .card2 { grid-area: card2; }
+  .card3 { grid-area: card3; }
+  .card4 { grid-area: card4; }
