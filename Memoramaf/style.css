@@ -287,6 +287,6 @@ img {
   pointer-events: none;
 }
 
-#card1:checked + #card2:checked + #card3:checked + #card4:checked + #card5:checked + #card6:checked + #card7:checked + #card8:checked + #card9:checked + #crd10:checked + #card11:checked + #card12:checked + #card13:checked + #card14:checked + #card15:checked + #card16:checked .cartas label{
-  background-color: #85b308;
+#card1:checked + #card2:checked + #card3:checked + #card4:checked + #card5:checked + #card6:checked + #card7:checked + #card8:checked + #card9:checked + #crd10:checked + #card11:checked + #card12:checked + #card13:checked + #card14:checked + #card15:checked + #card16:checked .body label{
+  background-color: #ea00ff;
 }
