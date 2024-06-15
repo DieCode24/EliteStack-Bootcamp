@@ -1,12 +1,65 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.pause-toggle {
+  display: none;
+}
+
+.pause-button {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  position: relative;
+  z-index: 20;
+}
+
+.pause-button.clicked {
+  display: none;
+}
+
 .Cards{
     display: grid;
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: repeat(4, 100px);
     gap: 10px;
     justify-content: center;
-    margin-top: 50px;
-    animation: changeState 1s; /* Duración total de 8 segundos */
-    animation-iteration-count: infinite;    
+    margin-top: 20px;
+    animation: changeState 3s infinite;
+    position: relative;
+    z-index: 10;    
+}
+
+#pause-toggle:checked ~ .pause-button {
+  display: none;
+}
+
+#pause-toggle:checked ~ .Cards {
+  animation-play-state: paused;
+}
+
+#pause-toggle:checked ~ .overlay {
+  display: none;
+  pointer-events: none;
 }
 
 @keyframes changeState {
@@ -222,20 +275,64 @@
     }
   }
   
-  
-  .selector1 { grid-area: selector1; }
-  .selector2 { grid-area: selector2; }
-  .selector3 { grid-area: selector3; }
-  .selector4 { grid-area: selector4; }
-  .selector5 { grid-area: selector5; }
-  .selector6 { grid-area: selector6; }
-  .selector7 { grid-area: selector7; }
-  .selector8 { grid-area: selector8; }
-  .selector9 { grid-area: selector9; }
-  .selector10 { grid-area: selector10; }
-  .selector11 { grid-area: selector11; }
-  .selector12 { grid-area: selector12; }
-  .selector13 { grid-area: selector13; }
-  .selector14 { grid-area: selector14; }
-  .selector15 { grid-area: selector15; }
-  .selector16 { grid-area: selector16; }
+/* Define estilos para cada selector */
+.selector1 { grid-area: selector1; background-color: #ff6666; }
+.selector2 { grid-area: selector2; background-color: #ff9966; }
+.selector3 { grid-area: selector3; background-color: #ffcc66; }
+.selector4 { grid-area: selector4; background-color: #ffff66; }
+.selector5 { grid-area: selector5; background-color: #ccff66; }
+.selector6 { grid-area: selector6; background-color: #99ff66; }
+.selector7 { grid-area: selector7; background-color: #66ff66; }
+.selector8 { grid-area: selector8; background-color: #66ff99; }
+.selector9 { grid-area: selector9; background-color: #66ffcc; }
+.selector10 { grid-area: selector10; background-color: #66ffff; }
+.selector11 { grid-area: selector11; background-color: #66ccff; }
+.selector12 { grid-area: selector12; background-color: #6699ff; }
+.selector13 { grid-area: selector13; background-color: #6666ff; }
+.selector14 { grid-area: selector14; background-color: #9966ff; }
+.selector15 { grid-area: selector15; background-color: #cc66ff; }
+.selector16 { grid-area: selector16; background-color: #ff66ff; }
+
+.selector1, .selector2, .selector3, .selector4,
+.selector5, .selector6, .selector7, .selector8,
+.selector9, .selector10, .selector11, .selector12,
+.selector13, .selector14, .selector15, .selector16 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: 15;
+}
+
+/* Botón de reinicio */
+.reset-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.reset-button:hover {
+  background-color: #45a049;
+}
+
+.pause-toggle:not(:checked) ~ .overlay {
+    pointer-events: all;
+}
