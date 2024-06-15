@@ -6,23 +6,51 @@ body {
 }
 
 header {
-    background-color: white;
+    background-color: #ffffff;
     color: #000000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    margin: 0;
+    width: 100%;
+}
+
+
+
+.logo {
+    width: 35%; /* Ajusta el ancho del logo al 20% */
 }
 
 .logo img {
-    max-height: 50px; /* Ajusta el tamaño máximo del logo según sea necesario */
+    max-height: 100px; /* Ajusta el tamaño máximo del logo según sea necesario */
+    max-width: 100%; /* Asegura que la imagen no se desborde */
 }
 
 .texto-derecha {
-    text-align: right;
+    width: 80%; /* Ajusta el ancho del texto al 80% */
+    text-align: left; /* Mueve el título a la izquierda */
+    background-color: #dfe7ec;
+    /* Cambia el color de fondo del div */
+    padding: 20px;
+    /* Agrega un espacio interno */
+    display: flex;
+    /* Utiliza un diseño flexible */
+    flex-direction: column;
+    /* Alinea los elementos en columna */
 }
 
 .texto-derecha h1 {
+    color: #75b3a3;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    /* Aumenta el tamaño del encabezado */
+    order: 1;
+}
+
+
+.texto-derecha p {
+    margin: 0;
+    font-size: 0.9rem; /* Aumenta el tamaño del párrafo */
+    order: 2;
 }
