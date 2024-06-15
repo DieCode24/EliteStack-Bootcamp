@@ -1,0 +1,632 @@
+/* styles.css */
+
+.Cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+label {
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  margin: 10px;
+  /* display: block; */
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+}
+
+/* La tarjeta no se puede seleccionar cuando tiene  */
+#c1:checked + #c2:checked ~ .Cards .selector1,
+#c1:checked + #c2:checked ~ .Cards .selector2,
+#c3:checked + #c4:checked ~ .Cards .selector3,
+#c3:checked + #c4:checked ~ .Cards .selector4,
+#c5:checked + #c6:checked ~ .Cards .selector5,
+#c5:checked + #c6:checked ~ .Cards .selector6,
+#c7:checked + #c8:checked ~ .Cards .selector7,
+#c7:checked + #c8:checked ~ .Cards .selector8,
+#c9:checked + #c10:checked ~ .Cards .selector9,
+#c9:checked + #c10:checked ~ .Cards .selector10,
+#c11:checked + #c12:checked ~ .Cards .selector11,
+#c11:checked + #c12:checked ~ .Cards .selector12,
+#c13:checked + #c14:checked ~ .Cards .selector13,
+#c13:checked + #c14:checked ~ .Cards .selector14,
+#c15:checked + #c16:checked ~ .Cards .selector15,
+#c15:checked + #c16:checked ~ .Cards .selector16 {
+  background-color: #60de60;
+  pointer-events: none;
+}
+
+/*C1 C2*/
+#c1:checked + #c2:not(:checked) ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(1)):not(:nth-child(3)), 
+
+#c1:checked + #c2:not(:checked) ~ #c3:not(:checked) + #c4:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(4)),
+
+#c1:not(:checked)+ #c2:checked ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(2)):not(:nth-child(3)), 
+
+#c1:not(:checked) + #c2:checked ~ #c3:not(:checked)  + #c4:checked ~ .Cards label:not(:nth-child(2)):not(:nth-child(4)),
+
+
+#c1:checked + #c2:not(:checked) ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(1)):not(:nth-child(4)), 
+
+#c1:checked + #c2:not(:checked) ~ #c4:not(:checked) + #c5:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(5)),
+
+#c1:not(:checked)+ #c2:checked ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(2)):not(:nth-child(4)), 
+
+#c1:not(:checked) + #c2:checked ~ #c4:not(:checked)  + #c5:checked ~ .Cards label:not(:nth-child(2)):not(:nth-child(5)),
+
+
+#c1:checked + #c2:not(:checked) ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(1)):not(:nth-child(5)), 
+
+#c1:checked + #c2:not(:checked) ~ #c5:not(:checked) + #c6:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(6)),
+
+#c1:not(:checked)+ #c2:checked ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(2)):not(:nth-child(5)), 
+
+#c1:not(:checked) + #c2:checked ~ #c5:not(:checked)  + #c6:checked ~ .Cards label:not(:nth-child(2)):not(:nth-child(6)),
+
+
+#c1:checked + #c2:not(:checked) ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(1)):not(:nth-child(7)), 
+
+#c1:checked + #c2:not(:checked) ~ #c7:not(:checked) + #c8:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(8)),
+
+#c1:not(:checked)+ #c2:checked ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(2)):not(:nth-child(7)), 
+
+#c1:not(:checked) + #c2:checked ~ #c7:not(:checked)  + #c8:checked ~ .Cards label:not(:nth-child(2)):not(:nth-child(8)),
+
+
+#c1:checked + #c2:not(:checked) ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(1)):not(:nth-child(9)), 
+
+#c1:checked + #c2:not(:checked) ~ #c9:not(:checked) + #c10:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(10)),
+
+#c1:not(:checked)+ #c2:checked ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(2)):not(:nth-child(9)), 
+
+#c1:not(:checked) + #c2:checked ~ #c9:not(:checked)  + #c10:checked ~ .Cards label:not(:nth-child(2)):not(:nth-child(10)),
+
+
+#c1:checked + #c2:not(:checked) ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(1)):not(:nth-child(11)), 
+
+#c1:checked + #c2:not(:checked) ~ #c11:not(:checked) + #c12:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(12)),
+
+#c1:not(:checked)+ #c2:checked ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(2)):not(:nth-child(11)), 
+
+#c1:not(:checked) + #c2:checked ~ #c11:not(:checked)  + #c12:checked ~ .Cards label:not(:nth-child(2)):not(:nth-child(12)),
+
+
+#c1:checked + #c2:not(:checked) ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(1)):not(:nth-child(13)), 
+
+#c1:checked + #c2:not(:checked) ~ #c13:not(:checked) + #c14:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(14)),
+
+#c1:not(:checked)+ #c2:checked ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(2)):not(:nth-child(13)), 
+
+#c1:not(:checked) + #c2:checked ~ #c13:not(:checked)  + #c14:checked ~ .Cards label:not(:nth-child(2)):not(:nth-child(14)),
+
+
+#c1:checked + #c2:not(:checked) ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(1)):not(:nth-child(15)), 
+
+#c1:checked + #c2:not(:checked) ~ #c15:not(:checked) + #c16:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(16)),
+
+#c1:not(:checked)+ #c2:checked ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(2)):not(:nth-child(15)), 
+
+#c1:not(:checked) + #c2:checked ~ #c15:not(:checked)  + #c16:checked ~ .Cards label:not(:nth-child(2)):not(:nth-child(16)),
+
+/*C3 C4*/
+#c3:checked + #c4:not(:checked) ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(3)):not(:nth-child(1)), 
+
+#c3:checked + #c4:not(:checked) ~ #c1:not(:checked) + #c2:checked ~ .Cards label:not(:nth-child(3)):not(:nth-child(2)),
+
+#c3:not(:checked)+ #c4:checked ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(4)):not(:nth-child(1)), 
+
+#c3:not(:checked) + #c4:checked ~ #c1:not(:checked)  + #c2:checked ~ .Cards label:not(:nth-child(4)):not(:nth-child(2)),
+
+
+#c3:checked + #c4:not(:checked) ~ #c4:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(3)):not(:nth-child(4)), 
+
+#c3:checked + #c4:not(:checked) ~ #c5:not(:checked) + #c6:checked ~ .Cards label:not(:nth-child(3)):not(:nth-child(5)),
+
+#c3:not(:checked)+ #c4:checked ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(4)):not(:nth-child(4)), 
+
+#c3:not(:checked) + #c4:checked ~ #c5:not(:checked)  + #c6:checked ~ .Cards label:not(:nth-child(4)):not(:nth-child(5)),
+
+
+#c3:checked + #c4:not(:checked) ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(3)):not(:nth-child(5)), 
+
+#c3:checked + #c4:not(:checked) ~ #c5:not(:checked) + #c6:checked ~ .Cards label:not(:nth-child(3)):not(:nth-child(6)),
+
+#c3:not(:checked)+ #c4:checked ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(4)):not(:nth-child(5)), 
+
+#c3:not(:checked) + #c4:checked ~ #c5:not(:checked)  + #c6:checked ~ .Cards label:not(:nth-child(4)):not(:nth-child(6)),
+
+
+#c3:checked + #c4:not(:checked) ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(3)):not(:nth-child(7)), 
+
+#c3:checked + #c4:not(:checked) ~ #c7:not(:checked) + #c8:checked ~ .Cards label:not(:nth-child(3)):not(:nth-child(8)),
+
+#c3:not(:checked)+ #c4:checked ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(4)):not(:nth-child(7)), 
+
+#c3:not(:checked) + #c4:checked ~ #c7:not(:checked)  + #c8:checked ~ .Cards label:not(:nth-child(4)):not(:nth-child(8)),
+
+
+#c3:checked + #c4:not(:checked) ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(3)):not(:nth-child(9)), 
+
+#c3:checked + #c4:not(:checked) ~ #c9:not(:checked) + #c10:checked ~ .Cards label:not(:nth-child(3)):not(:nth-child(10)),
+
+#c3:not(:checked)+ #c4:checked ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(4)):not(:nth-child(9)), 
+
+#c3:not(:checked) + #c4:checked ~ #c9:not(:checked)  + #c10:checked ~ .Cards label:not(:nth-child(4)):not(:nth-child(10)),
+
+
+#c3:checked + #c4:not(:checked) ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(3)):not(:nth-child(11)), 
+
+#c3:checked + #c4:not(:checked) ~ #c11:not(:checked) + #c12:checked ~ .Cards label:not(:nth-child(3)):not(:nth-child(12)),
+
+#c3:not(:checked)+ #c4:checked ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(4)):not(:nth-child(11)), 
+
+#c3:not(:checked) + #c4:checked ~ #c11:not(:checked)  + #c12:checked ~ .Cards label:not(:nth-child(4)):not(:nth-child(12)),
+
+
+#c3:checked + #c4:not(:checked) ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(3)):not(:nth-child(13)), 
+
+#c3:checked + #c4:not(:checked) ~ #c13:not(:checked) + #c14:checked ~ .Cards label:not(:nth-child(3)):not(:nth-child(14)),
+
+#c3:not(:checked)+ #c4:checked ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(4)):not(:nth-child(13)), 
+
+#c3:not(:checked) + #c4:checked ~ #c13:not(:checked)  + #c14:checked ~ .Cards label:not(:nth-child(4)):not(:nth-child(14)),
+
+
+#c3:checked + #c4:not(:checked) ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(3)):not(:nth-child(15)), 
+
+#c3:checked + #c4:not(:checked) ~ #c15:not(:checked) + #c16:checked ~ .Cards label:not(:nth-child(3)):not(:nth-child(16)),
+
+#c3:not(:checked)+ #c4:checked ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(4)):not(:nth-child(15)), 
+
+#c3:not(:checked) + #c4:checked ~ #c15:not(:checked)  + #c16:checked ~ .Cards label:not(:nth-child(4)):not(:nth-child(16)),
+
+
+/*C5 C6*/
+
+#c5:checked + #c6:not(:checked) ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(5)):not(:nth-child(1)), 
+
+#c5:checked + #c6:not(:checked) ~ #c1:not(:checked) + #c2:checked ~ .Cards label:not(:nth-child(6)):not(:nth-child(2)),
+
+#c5:not(:checked)+ #c6:checked ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(5)):not(:nth-child(1)), 
+
+#c5:not(:checked) + #c6:checked ~ #c1:not(:checked)  + #c2:checked ~ .Cards label:not(:nth-child(6)):not(:nth-child(2)),
+
+
+#c5:checked + #c6:not(:checked) ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(5)):not(:nth-child(3)), 
+
+#c5:checked + #c6:not(:checked) ~ #c3:not(:checked) + #c4:checked ~ .Cards label:not(:nth-child(5)):not(:nth-child(4)),
+
+#c5:not(:checked)+ #c6:checked ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(6)):not(:nth-child(3)), 
+
+#c5:not(:checked) + #c6:checked ~ #c3:not(:checked)  + #c4:checked ~ .Cards label:not(:nth-child(6)):not(:nth-child(3)),
+
+
+#c5:checked + #c6:not(:checked) ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(5)):not(:nth-child(4)), 
+
+#c5:checked + #c6:not(:checked) ~ #c4:not(:checked) + #c5:checked ~ .Cards label:not(:nth-child(5)):not(:nth-child(5)),
+
+#c5:not(:checked)+ #c6:checked ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(6)):not(:nth-child(4)), 
+
+#c5:not(:checked) + #c6:checked ~ #c4:not(:checked)  + #c5:checked ~ .Cards label:not(:nth-child(6)):not(:nth-child(5)),
+
+
+
+#c5:checked + #c6:not(:checked) ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(5)):not(:nth-child(7)), 
+
+#c5:checked + #c6:not(:checked) ~ #c7:not(:checked) + #c8:checked ~ .Cards label:not(:nth-child(5)):not(:nth-child(8)),
+
+#c5:not(:checked)+ #c6:checked ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(6)):not(:nth-child(7)), 
+
+#c5:not(:checked) + #c6:checked ~ #c7:not(:checked)  + #c8:checked ~ .Cards label:not(:nth-child(6)):not(:nth-child(8)),
+
+
+#c5:checked + #c6:not(:checked) ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(5)):not(:nth-child(9)), 
+
+#c5:checked + #c6:not(:checked) ~ #c9:not(:checked) + #c10:checked ~ .Cards label:not(:nth-child(5)):not(:nth-child(10)),
+
+#c5:not(:checked)+ #c6:checked ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(6)):not(:nth-child(9)), 
+
+#c5:not(:checked) + #c6:checked ~ #c9:not(:checked)  + #c10:checked ~ .Cards label:not(:nth-child(6)):not(:nth-child(10)),
+
+
+#c5:checked + #c6:not(:checked) ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(5)):not(:nth-child(11)), 
+
+#c5:checked + #c6:not(:checked) ~ #c11:not(:checked) + #c12:checked ~ .Cards label:not(:nth-child(5)):not(:nth-child(12)),
+
+#c5:not(:checked)+ #c6:checked ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(6)):not(:nth-child(11)), 
+
+#c5:not(:checked) + #c6:checked ~ #c11:not(:checked)  + #c12:checked ~ .Cards label:not(:nth-child(6)):not(:nth-child(12)),
+
+
+#c5:checked + #c6:not(:checked) ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(5)):not(:nth-child(13)), 
+
+#c5:checked + #c6:not(:checked) ~ #c13:not(:checked) + #c14:checked ~ .Cards label:not(:nth-child(5)):not(:nth-child(14)),
+
+#c5:not(:checked)+ #c6:checked ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(6)):not(:nth-child(13)), 
+
+#c5:not(:checked) + #c6:checked ~ #c13:not(:checked)  + #c14:checked ~ .Cards label:not(:nth-child(6)):not(:nth-child(14)),
+
+
+#c5:checked + #c6:not(:checked) ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(5)):not(:nth-child(15)), 
+
+#c5:checked + #c6:not(:checked) ~ #c15:not(:checked) + #c16:checked ~ .Cards label:not(:nth-child(5)):not(:nth-child(16)),
+
+#c5:not(:checked)+ #c6:checked ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(6)):not(:nth-child(15)), 
+
+#c5:not(:checked) + #c6:checked ~ #c15:not(:checked)  + #c16:checked ~ .Cards label:not(:nth-child(6)):not(:nth-child(16)),
+
+
+/*C7 C8*/
+#c7:checked + #c8:not(:checked) ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(7)):not(:nth-child(1)), 
+
+#c7:checked + #c8:not(:checked) ~ #c1:not(:checked) + #c2:checked ~ .Cards label:not(:nth-child(7)):not(:nth-child(2)),
+
+#c7:not(:checked)+ #c8:checked ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(8)):not(:nth-child(1)), 
+
+#c7:not(:checked) + #c8:checked ~ #c1:not(:checked)  + #c2:checked ~ .Cards label:not(:nth-child(8)):not(:nth-child(2)),
+
+
+#c7:checked + #c8:not(:checked) ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(7)):not(:nth-child(3)), 
+
+#c7:checked + #c8:not(:checked) ~ #c3:not(:checked) + #c4:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(4)),
+
+#c7:not(:checked)+ #c8:checked ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(8)):not(:nth-child(3)), 
+
+#c7:not(:checked) + #c8:checked ~ #c3:not(:checked)  + #c4:checked ~ .Cards label:not(:nth-child(8)):not(:nth-child(3)),
+
+
+#c7:checked + #c8:not(:checked) ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(1)):not(:nth-child(4)), 
+
+#c7:checked + #c8:not(:checked) ~ #c4:not(:checked) + #c5:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(5)),
+
+#c7:not(:checked)+ #c8:checked ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(8)):not(:nth-child(4)), 
+
+#c7:not(:checked) + #c8:checked ~ #c4:not(:checked)  + #c5:checked ~ .Cards label:not(:nth-child(8)):not(:nth-child(5)),
+
+
+#c7:checked + #c8:not(:checked) ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(1)):not(:nth-child(5)), 
+
+#c7:checked + #c8:not(:checked) ~ #c5:not(:checked) + #c6:checked ~ .Cards label:not(:nth-child(1)):not(:nth-child(6)),
+
+#c7:not(:checked)+ #c8:checked ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(8)):not(:nth-child(5)), 
+
+#c7:not(:checked) + #c8:checked ~ #c5:not(:checked)  + #c6:checked ~ .Cards label:not(:nth-child(8)):not(:nth-child(6)),
+
+
+#c7:checked + #c8:not(:checked) ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(7)):not(:nth-child(9)), 
+
+#c7:checked + #c8:not(:checked) ~ #c9:not(:checked) + #c10:checked ~ .Cards label:not(:nth-child(7)):not(:nth-child(10)),
+
+#c7:not(:checked)+ #c8:checked ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(8)):not(:nth-child(9)), 
+
+#c7:not(:checked) + #c8:checked ~ #c9:not(:checked)  + #c10:checked ~ .Cards label:not(:nth-child(8)):not(:nth-child(10)),
+
+
+#c7:checked + #c8:not(:checked) ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(7)):not(:nth-child(11)), 
+
+#c7:checked + #c8:not(:checked) ~ #c11:not(:checked) + #c12:checked ~ .Cards label:not(:nth-child(7)):not(:nth-child(12)),
+
+#c7:not(:checked)+ #c8:checked ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(8)):not(:nth-child(11)), 
+
+#c7:not(:checked) + #c8:checked ~ #c11:not(:checked)  + #c12:checked ~ .Cards label:not(:nth-child(8)):not(:nth-child(12)),
+
+
+#c7:checked + #c8:not(:checked) ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(7)):not(:nth-child(13)), 
+
+#c7:checked + #c8:not(:checked) ~ #c13:not(:checked) + #c14:checked ~ .Cards label:not(:nth-child(7)):not(:nth-child(14)),
+
+#c7:not(:checked)+ #c8:checked ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(8)):not(:nth-child(13)), 
+
+#c7:not(:checked) + #c8:checked ~ #c13:not(:checked)  + #c14:checked ~ .Cards label:not(:nth-child(8)):not(:nth-child(14)),
+
+
+#c7:checked + #c8:not(:checked) ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(7)):not(:nth-child(15)), 
+
+#c7:checked + #c8:not(:checked) ~ #c15:not(:checked) + #c16:checked ~ .Cards label:not(:nth-child(7)):not(:nth-child(16)),
+
+#c7:not(:checked)+ #c8:checked ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(8)):not(:nth-child(15)), 
+
+#c7:not(:checked) + #c8:checked ~ #c15:not(:checked)  + #c16:checked ~ .Cards label:not(:nth-child(8)):not(:nth-child(16)),
+
+/*C9 C10*/
+
+#c9:checked + #c10:not(:checked) ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(9)):not(:nth-child(1)), 
+
+#c9:checked + #c10:not(:checked) ~ #c1:not(:checked) + #c2:checked ~ .Cards label:not(:nth-child(9)):not(:nth-child(2)),
+
+#c9:not(:checked)+ #c10:checked ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(10)):not(:nth-child(1)), 
+
+#c9:not(:checked) + #c10:checked ~ #c1:not(:checked)  + #c2:checked ~ .Cards label:not(:nth-child(10)):not(:nth-child(2)),
+
+
+#c9:checked + #c10:not(:checked) ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(9)):not(:nth-child(3)), 
+
+#c9:checked + #c10:not(:checked) ~ #c3:not(:checked) + #c4:checked ~ .Cards label:not(:nth-child(9)):not(:nth-child(4)),
+
+#c9:not(:checked)+ #c10:checked ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(10)):not(:nth-child(3)), 
+
+#c9:not(:checked) + #c10:checked ~ #c3:not(:checked)  + #c4:checked ~ .Cards label:not(:nth-child(10)):not(:nth-child(3)),
+
+
+#c9:checked + #c10:not(:checked) ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(9)):not(:nth-child(4)), 
+
+#c9:checked + #c10:not(:checked) ~ #c4:not(:checked) + #c5:checked ~ .Cards label:not(:nth-child(9)):not(:nth-child(5)),
+
+#c9:not(:checked)+ #c10:checked ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(10)):not(:nth-child(4)), 
+
+#c9:not(:checked) + #c10:checked ~ #c4:not(:checked)  + #c5:checked ~ .Cards label:not(:nth-child(10)):not(:nth-child(5)),
+
+
+#c9:checked + #c10:not(:checked) ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(9)):not(:nth-child(5)), 
+
+#c9:checked + #c10:not(:checked) ~ #c5:not(:checked) + #c6:checked ~ .Cards label:not(:nth-child(9)):not(:nth-child(6)),
+
+#c9:not(:checked)+ #c10:checked ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(10)):not(:nth-child(5)), 
+
+#c9:not(:checked) + #c10:checked ~ #c5:not(:checked)  + #c6:checked ~ .Cards label:not(:nth-child(10)):not(:nth-child(6)),
+
+
+#c9:checked + #c10:not(:checked) ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(9)):not(:nth-child(7)), 
+
+#c9:checked + #c10:not(:checked) ~ #c7:not(:checked) + #c8:checked ~ .Cards label:not(:nth-child(9)):not(:nth-child(8)),
+
+#c9:not(:checked)+ #c10:checked ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(10)):not(:nth-child(7)), 
+
+#c9:not(:checked) + #c10:checked ~ #c7:not(:checked)  + #c8:checked ~ .Cards label:not(:nth-child(10)):not(:nth-child(8)),
+
+
+
+#c9:checked + #c10:not(:checked) ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(9)):not(:nth-child(11)), 
+
+#c9:checked + #c10:not(:checked) ~ #c11:not(:checked) + #c12:checked ~ .Cards label:not(:nth-child(9)):not(:nth-child(12)),
+
+#c9:not(:checked)+ #c10:checked ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(10)):not(:nth-child(11)), 
+
+#c9:not(:checked) + #c10:checked ~ #c11:not(:checked)  + #c12:checked ~ .Cards label:not(:nth-child(10)):not(:nth-child(12)),
+
+
+#c9:checked + #c10:not(:checked) ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(9)):not(:nth-child(13)), 
+
+#c9:checked + #c10:not(:checked) ~ #c13:not(:checked) + #c14:checked ~ .Cards label:not(:nth-child(9)):not(:nth-child(14)),
+
+#c9:not(:checked)+ #c10:checked ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(10)):not(:nth-child(13)), 
+
+#c9:not(:checked) + #c10:checked ~ #c13:not(:checked)  + #c14:checked ~ .Cards label:not(:nth-child(10)):not(:nth-child(14)),
+
+
+#c9:checked + #c10:not(:checked) ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(9)):not(:nth-child(15)), 
+
+#c9:checked + #c10:not(:checked) ~ #c15:not(:checked) + #c16:checked ~ .Cards label:not(:nth-child(9)):not(:nth-child(16)),
+
+#c9:not(:checked)+ #c10:checked ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(10)):not(:nth-child(15)), 
+
+#c9:not(:checked) + #c10:checked ~ #c15:not(:checked)  + #c16:checked ~ .Cards label:not(:nth-child(10)):not(:nth-child(16)),
+
+/*C11 C12*/
+
+#c11:checked + #c12:not(:checked) ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(11)):not(:nth-child(1)), 
+
+#c11:checked + #c12:not(:checked) ~ #c1:not(:checked) + #c2:checked ~ .Cards label:not(:nth-child(11)):not(:nth-child(2)),
+
+#c11:not(:checked)+ #c12:checked ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(12)):not(:nth-child(1)), 
+
+#c11:not(:checked) + #c12:checked ~ #c1:not(:checked)  + #c2:checked ~ .Cards label:not(:nth-child(12)):not(:nth-child(2)),
+
+
+#c11:checked + #c12:not(:checked) ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(11)):not(:nth-child(3)), 
+
+#c11:checked + #c12:not(:checked) ~ #c3:not(:checked) + #c4:checked ~ .Cards label:not(:nth-child(11)):not(:nth-child(4)),
+
+#c11:not(:checked)+ #c12:checked ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(12)):not(:nth-child(3)), 
+
+#c11:not(:checked) + #c12:checked ~ #c3:not(:checked)  + #c4:checked ~ .Cards label:not(:nth-child(12)):not(:nth-child(3)),
+
+
+#c11:checked + #c12:not(:checked) ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(11)):not(:nth-child(4)), 
+
+#c11:checked + #c12:not(:checked) ~ #c4:not(:checked) + #c5:checked ~ .Cards label:not(:nth-child(11)):not(:nth-child(5)),
+
+#c11:not(:checked)+ #c12:checked ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(12)):not(:nth-child(4)), 
+
+#c11:not(:checked) + #c12:checked ~ #c4:not(:checked)  + #c5:checked ~ .Cards label:not(:nth-child(12)):not(:nth-child(5)),
+
+
+#c11:checked + #c12:not(:checked) ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(11)):not(:nth-child(5)), 
+
+#c11:checked + #c12:not(:checked) ~ #c5:not(:checked) + #c6:checked ~ .Cards label:not(:nth-child(11)):not(:nth-child(6)),
+
+#c11:not(:checked)+ #c12:checked ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(12)):not(:nth-child(5)), 
+
+#c11:not(:checked) + #c12:checked ~ #c5:not(:checked)  + #c6:checked ~ .Cards label:not(:nth-child(12)):not(:nth-child(6)),
+
+
+#c11:checked + #c12:not(:checked) ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(11)):not(:nth-child(7)), 
+
+#c11:checked + #c12:not(:checked) ~ #c7:not(:checked) + #c8:checked ~ .Cards label:not(:nth-child(11)):not(:nth-child(8)),
+
+#c11:not(:checked)+ #c12:checked ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(12)):not(:nth-child(7)), 
+
+#c11:not(:checked) + #c12:checked ~ #c7:not(:checked)  + #c8:checked ~ .Cards label:not(:nth-child(12)):not(:nth-child(8)),
+
+
+#c11:checked + #c12:not(:checked) ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(11)):not(:nth-child(9)), 
+
+#c11:checked + #c12:not(:checked) ~ #c9:not(:checked) + #c10:checked ~ .Cards label:not(:nth-child(11)):not(:nth-child(10)),
+
+#c11:not(:checked)+ #c12:checked ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(12)):not(:nth-child(9)), 
+
+#c11:not(:checked) + #c12:checked ~ #c9:not(:checked)  + #c10:checked ~ .Cards label:not(:nth-child(12)):not(:nth-child(10)),
+
+
+
+#c11:checked + #c12:not(:checked) ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(11)):not(:nth-child(13)), 
+
+#c11:checked + #c12:not(:checked) ~ #c13:not(:checked) + #c14:checked ~ .Cards label:not(:nth-child(11)):not(:nth-child(14)),
+
+#c11:not(:checked)+ #c12:checked ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(12)):not(:nth-child(13)), 
+
+#c11:not(:checked) + #c12:checked ~ #c13:not(:checked)  + #c14:checked ~ .Cards label:not(:nth-child(12)):not(:nth-child(14)),
+
+
+#c11:checked + #c12:not(:checked) ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(11)):not(:nth-child(15)), 
+
+#c11:checked + #c12:not(:checked) ~ #c15:not(:checked) + #c16:checked ~ .Cards label:not(:nth-child(11)):not(:nth-child(16)),
+
+#c11:not(:checked)+ #c12:checked ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(12)):not(:nth-child(15)), 
+
+#c11:not(:checked) + #c12:checked ~ #c15:not(:checked)  + #c16:checked ~ .Cards label:not(:nth-child(12)):not(:nth-child(16)),
+
+/*C13 C14*/
+#c13:checked + #c14:not(:checked) ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(13)):not(:nth-child(1)), 
+
+#c13:checked + #c14:not(:checked) ~ #c1:not(:checked) + #c2:checked ~ .Cards label:not(:nth-child(13)):not(:nth-child(2)),
+
+#c13:not(:checked)+ #c14:checked ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(14)):not(:nth-child(1)), 
+
+#c13:not(:checked) + #c14:checked ~ #c1:not(:checked)  + #c2:checked ~ .Cards label:not(:nth-child(14)):not(:nth-child(2)),
+
+
+
+#c13:checked + #c14:not(:checked) ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(13)):not(:nth-child(3)), 
+
+#c13:checked + #c14:not(:checked) ~ #c3:not(:checked) + #c4:checked ~ .Cards label:not(:nth-child(13)):not(:nth-child(4)),
+
+#c13:not(:checked)+ #c14:checked ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(14)):not(:nth-child(3)), 
+
+#c13:not(:checked) + #c14:checked ~ #c3:not(:checked)  + #c4:checked ~ .Cards label:not(:nth-child(14)):not(:nth-child(3)),
+
+
+#c13:checked + #c14:not(:checked) ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(13)):not(:nth-child(4)), 
+
+#c13:checked + #c14:not(:checked) ~ #c4:not(:checked) + #c5:checked ~ .Cards label:not(:nth-child(13)):not(:nth-child(5)),
+
+#c13:not(:checked)+ #c14:checked ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(14)):not(:nth-child(4)), 
+
+#c13:not(:checked) + #c14:checked ~ #c4:not(:checked)  + #c5:checked ~ .Cards label:not(:nth-child(14)):not(:nth-child(5)),
+
+
+#c13:checked + #c14:not(:checked) ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(13)):not(:nth-child(5)), 
+
+#c13:checked + #c14:not(:checked) ~ #c5:not(:checked) + #c6:checked ~ .Cards label:not(:nth-child(13)):not(:nth-child(6)),
+
+#c13:not(:checked)+ #c14:checked ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(14)):not(:nth-child(5)), 
+
+#c13:not(:checked) + #c14:checked ~ #c5:not(:checked)  + #c6:checked ~ .Cards label:not(:nth-child(14)):not(:nth-child(6)),
+
+
+#c13:checked + #c14:not(:checked) ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(13)):not(:nth-child(7)), 
+
+#c13:checked + #c14:not(:checked) ~ #c7:not(:checked) + #c8:checked ~ .Cards label:not(:nth-child(13)):not(:nth-child(8)),
+
+#c13:not(:checked)+ #c14:checked ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(14)):not(:nth-child(7)), 
+
+#c13:not(:checked) + #c14:checked ~ #c7:not(:checked)  + #c8:checked ~ .Cards label:not(:nth-child(14)):not(:nth-child(8)),
+
+
+#c13:checked + #c14:not(:checked) ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(13)):not(:nth-child(9)), 
+
+#c13:checked + #c14:not(:checked) ~ #c9:not(:checked) + #c10:checked ~ .Cards label:not(:nth-child(13)):not(:nth-child(10)),
+
+#c13:not(:checked)+ #c14:checked ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(14)):not(:nth-child(9)), 
+
+#c13:not(:checked) + #c14:checked ~ #c9:not(:checked)  + #c10:checked ~ .Cards label:not(:nth-child(14)):not(:nth-child(10)),
+
+
+#c13:checked + #c14:not(:checked) ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(13)):not(:nth-child(11)), 
+
+#c13:checked + #c14:not(:checked) ~ #c11:not(:checked) + #c12:checked ~ .Cards label:not(:nth-child(13)):not(:nth-child(12)),
+
+#c13:not(:checked)+ #c14:checked ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(14)):not(:nth-child(11)), 
+
+#c13:not(:checked) + #c14:checked ~ #c11:not(:checked)  + #c12:checked ~ .Cards label:not(:nth-child(14)):not(:nth-child(12)),
+
+
+#c13:checked + #c14:not(:checked) ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(13)):not(:nth-child(15)), 
+
+#c13:checked + #c14:not(:checked) ~ #c15:not(:checked) + #c16:checked ~ .Cards label:not(:nth-child(13)):not(:nth-child(16)),
+
+#c13:not(:checked)+ #c14:checked ~ #c15:checked + #c16:not(:checked) ~ .Cards label:not(:nth-child(14)):not(:nth-child(15)), 
+
+#c13:not(:checked) + #c14:checked ~ #c15:not(:checked)  + #c16:checked ~ .Cards label:not(:nth-child(14)):not(:nth-child(16)),
+
+/*C15 C16*/
+
+#c15:checked + #c16:not(:checked) ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(15)):not(:nth-child(1)), 
+
+#c15:checked + #c16:not(:checked) ~ #c1:not(:checked) + #c2:checked ~ .Cards label:not(:nth-child(15)):not(:nth-child(2)),
+
+#c15:not(:checked)+ #c16:checked ~ #c1:checked + #c2:not(:checked) ~ .Cards label:not(:nth-child(16)):not(:nth-child(1)), 
+
+#c15:not(:checked) + #c16:checked ~ #c1:not(:checked)  + #c2:checked ~ .Cards label:not(:nth-child(16)):not(:nth-child(2)),
+
+
+
+#c15:checked + #c16:not(:checked) ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(15)):not(:nth-child(3)), 
+
+#c15:checked + #c16:not(:checked) ~ #c3:not(:checked) + #c4:checked ~ .Cards label:not(:nth-child(15)):not(:nth-child(4)),
+
+#c15:not(:checked)+ #c16:checked ~ #c3:checked + #c4:not(:checked) ~ .Cards label:not(:nth-child(16)):not(:nth-child(3)), 
+
+#c15:not(:checked) + #c16:checked ~ #c3:not(:checked)  + #c4:checked ~ .Cards label:not(:nth-child(16)):not(:nth-child(3)),
+
+
+#c15:checked + #c16:not(:checked) ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(15)):not(:nth-child(4)), 
+
+#c15:checked + #c16:not(:checked) ~ #c4:not(:checked) + #c5:checked ~ .Cards label:not(:nth-child(15)):not(:nth-child(5)),
+
+#c15:not(:checked)+ #c16:checked ~ #c4:checked + #c5:not(:checked) ~ .Cards label:not(:nth-child(16)):not(:nth-child(4)), 
+
+#c15:not(:checked) + #c16:checked ~ #c4:not(:checked)  + #c5:checked ~ .Cards label:not(:nth-child(16)):not(:nth-child(5)),
+
+
+#c15:checked + #c16:not(:checked) ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(15)):not(:nth-child(5)), 
+
+#c15:checked + #c16:not(:checked) ~ #c5:not(:checked) + #c6:checked ~ .Cards label:not(:nth-child(15)):not(:nth-child(6)),
+
+#c15:not(:checked)+ #c16:checked ~ #c5:checked + #c6:not(:checked) ~ .Cards label:not(:nth-child(16)):not(:nth-child(5)), 
+
+#c15:not(:checked) + #c16:checked ~ #c5:not(:checked)  + #c6:checked ~ .Cards label:not(:nth-child(16)):not(:nth-child(6)),
+
+
+#c15:checked + #c16:not(:checked) ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(15)):not(:nth-child(7)), 
+
+#c15:checked + #c16:not(:checked) ~ #c7:not(:checked) + #c8:checked ~ .Cards label:not(:nth-child(15)):not(:nth-child(8)),
+
+#c15:not(:checked)+ #c16:checked ~ #c7:checked + #c8:not(:checked) ~ .Cards label:not(:nth-child(16)):not(:nth-child(7)), 
+
+#c15:not(:checked) + #c16:checked ~ #c7:not(:checked)  + #c8:checked ~ .Cards label:not(:nth-child(16)):not(:nth-child(8)),
+
+
+#c15:checked + #c16:not(:checked) ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(15)):not(:nth-child(9)), 
+
+#c15:checked + #c16:not(:checked) ~ #c9:not(:checked) + #c10:checked ~ .Cards label:not(:nth-child(15)):not(:nth-child(10)),
+
+#c15:not(:checked)+ #c16:checked ~ #c9:checked + #c10:not(:checked) ~ .Cards label:not(:nth-child(16)):not(:nth-child(9)), 
+
+#c15:not(:checked) + #c16:checked ~ #c9:not(:checked)  + #c10:checked ~ .Cards label:not(:nth-child(16)):not(:nth-child(10)),
+
+
+#c15:checked + #c16:not(:checked) ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(15)):not(:nth-child(11)), 
+
+#c15:checked + #c16:not(:checked) ~ #c11:not(:checked) + #c12:checked ~ .Cards label:not(:nth-child(15)):not(:nth-child(12)),
+
+#c15:not(:checked)+ #c16:checked ~ #c11:checked + #c12:not(:checked) ~ .Cards label:not(:nth-child(16)):not(:nth-child(11)), 
+
+#c15:not(:checked) + #c16:checked ~ #c11:not(:checked)  + #c12:checked ~ .Cards label:not(:nth-child(16)):not(:nth-child(12)),
+
+
+#c15:checked + #c16:not(:checked) ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(15)):not(:nth-child(13)), 
+
+#c15:checked + #c16:not(:checked) ~ #c13:not(:checked) + #c14:checked ~ .Cards label:not(:nth-child(15)):not(:nth-child(14)),
+
+#c15:not(:checked)+ #c16:checked ~ #c13:checked + #c14:not(:checked) ~ .Cards label:not(:nth-child(16)):not(:nth-child(13)), 
+
+#c15:not(:checked) + #c16:checked ~ #c13:not(:checked)  + #c14:checked ~ .Cards label:not(:nth-child(16)):not(:nth-child(14))
+
+{
+  background-color: #842222;
+  pointer-events: none;
+}
+
+
