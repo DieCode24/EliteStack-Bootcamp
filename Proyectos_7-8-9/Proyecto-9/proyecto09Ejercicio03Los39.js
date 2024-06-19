@@ -1,35 +1,47 @@
-/* -Fecha de publicación: Junio 18
-Hora: 9:09pm
-Versión de su código: 1
-Autores. Ingenieros del bootcamp
-Nombre del lenguaje utilizado: JavaScript
-Versión del lenguaje utilizado: ECMAScript 6
-Presentado a: Doctor Ricardo Moreno Laverde
-Universidad Tecnológica de Pereira
-Programa de Ingeniería de Sistemas y Computación
-Descripcion: Este programa solicita un número e imprime la serie de Lucas
-Restrincciones: El número ingresado debe ser mayor a 0, no puede ser decimal y no puede ser mayor o a 45 (Tiempo de ejecución)
-*/
+// - Fecha de publicación: [18/07/2024]
+// - Número de la tarea: [03]
+// - Hora: [11:22]AM
+// - Versión de la tarea: [02]
+// - Autores: [Todos los ingenieros del grupo (39)]
+// - Nombre del lenguaje utilizado: [Javascript]
+// - Versión del lenguaje utilizado: [“ECMASCRIPT 6.0”]
+// - Presentado a: [Doctor Ricardo Moreno Laverde]
+
+// ------- | Universidad Tecnológica de Pereira |-------------
+// --- | Programa de Ingeniería de Sistemas y Computación |---
+
+// - Descripción:
+// El programa recibirá un variable termino, que significa el limite de la secuencia de Lucas a imprimir.
+
 
 const prompt = require('prompt-sync')(); // Importa la librería prompt-sync
-const nTermino = parseInt(prompt("Ingrese el termino para la serie: ")); //Solicita el termino deseado para la serie de Lucas
- 
-// Función recursiva para calcular la serie de Lucas
-const serieLucas = (termino) => {
-  if (termino === 0) return 2; // Primer término de la serie de Lucas
-  if (termino === 1) return 1; // Segundo término de la serie de Lucas
+const nTermino = parseInt(prompt("Ingrese el término para la serie de Lucas: "));
 
-  // Calcula el término actual como la suma de los dos términos anteriores
-  return serieLucas(termino - 1) + serieLucas(termino - 2);
+// Función recursiva para calcular el término de la serie de Lucas
+const lucas = (n) => {
+    if (n === 0) return 2; // Primer término de la serie de Lucas
+    if (n === 1) return 1; // Segundo término de la serie de Lucas
+
+    return lucas(n - 1) + lucas(n - 2); // Fórmula recursiva de la serie de Lucas
 };
 
-let serie = ""; // Variable para almacenar la serie de Lucas
+// Función recursiva para generar la serie de Lucas hasta el término n
+const generarSerieLucas = (terminoActual, n, serie) => {
+    if (terminoActual > n) {
+        return serie; // Retorna la serie completa cuando se alcanza el término n
+    }
 
-// Genera la serie de Lucas hasta el término nTermino
-for (let termino = 0; termino < nTermino - 1; termino++) {
-  serie += serieLucas(termino) + ", ";
-}
-serie += serieLucas(nTermino - 1) + ".";  // Agrega el último término de la serie de Lucas para que termine con un punto.
+    // Calcula el término actual de la serie de Lucas
+    let termino = lucas(terminoActual);
 
-console.log(serie); // Imprime la variable serie con la serie de Lucas generada.
+    // Agrega el término actual a la serie, separado por coma
+    serie += (terminoActual === n) ? termino + "." : termino + ", ";
+
+    // Llama recursivamente para el siguiente término
+    return generarSerieLucas(terminoActual + 1, n, serie);
+};
+
+let serie = generarSerieLucas(0, nTermino, ""); // Inicia la generación de la serie de Lucas desde el término 0
+
+console.log(serie); // Imprime la serie de Lucas generada
 

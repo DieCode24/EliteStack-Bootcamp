@@ -1,16 +1,15 @@
 /* 
-- Fecha de publicación: [18/06/2024]
-- Número de la tarea: [25]
-- Hora: [10:00]PM
-- Versión de la tarea: [01]
-- Autores: [Todos los ingenieros del grupo (39)]
-- Nombre del lenguaje utilizado: [Javascript]
-- Versión del lenguaje utilizado: [v12.22.9]
-- Presentado a: [Doctor Ricardo Moreno Laverde]
+// - Fecha de publicación: [18/06/2024]
+// - Número de la tarea: [25]
+// - Hora: [10:00]PM
+// - Versión de la tarea: [01]
+// - Autores: [Todos los ingenieros del grupo (39)]
+// - Nombre del lenguaje utilizado: [Javascript]
+// - Versión del lenguaje utilizado: [“ECMASCRIPT 6.0”]
+// - Presentado a: [Doctor Ricardo Moreno Laverde]
 
-------- | Universidad Tecnológica de Pereira |-------------
---- | Programa de Ingeniería de Sistemas y Computación |---
-
+// ------- | Universidad Tecnológica de Pereira |-------------
+// --- | Programa de Ingeniería de Sistemas y Computación |---
 - Descripción:
 El prograam imprime un rombo de "Z"
           Z
@@ -22,25 +21,47 @@ El prograam imprime un rombo de "Z"
           Z
 */
 
-
-//la funcion rombo se encarga de diregir la impresion el rombo
-function MainDisplayRombo(space,letter,row){
-    let spaceAux = space;//variable que contiene el array espacios que se imprimiran
-    let letterAux = letter;//variable que contiene el array de letras que se imprimiran
-    for(let i = 0; i < row/2; i++){
-        console.log(`${spaceAux}${letterAux}`);
-        //.silice es un metodo para crear una copia superficial de una array
-        spaceAux = spaceAux.slice(0,spaceAux.length-1);
-        letterAux = letterAux + letter + letter;
-    }
-  letterAux = letterAux.slice(0,letterAux.length-2);
-  spaceAux = spaceAux + " ";
-    for(let i = 0; i < row/2; i++){
-      spaceAux = spaceAux + " ";
-      letterAux = letterAux.slice(0,letterAux.length-2);
-      console.log(`${spaceAux}${letterAux}`);
+// La función MainDisplayRombo se encarga de dirigir la impresión del rombo
+function MainDisplayRombo(space, letter, row) {
+    if (row > 0) {
+        //Imprime la cadena de espacios y letras
+        DisplaySpace(space);
+        DisplayLetter(letter);
+        process.stdout.write('\n');
+        if (row > 4) {
+            //llamada rescurciva para imprimir la parte de aiva del rombo
+            MainDisplayRombo(space - 1, letter + 2, row - 1);
+        } else {
+            //llamada recursiva para imprimir la parte de abajo del rombo
+            MainDisplayRombo(space + 1, letter - 2, row - 1);
+        }
     }
 }
-// se llama a la funcion con el numero inicial de espacios"          " y letras, y el numero de columnnas
-console.log(MainDisplayRombo("        ","Z",7));
+
+
+
+//funcion para imprimir espacios
+function DisplaySpace(space) {
+    if (space > 0) {
+        process.stdout.write(' ');
+        DisplaySpace(space - 1);
+    } else {
+        return;
+    }
+}
+
+//funcion para imprimer letras
+function DisplayLetter(amont) {
+    if (amont > 0) {
+        process.stdout.write('Z');
+        DisplayLetter(amont - 1);
+    } else {
+        return '';
+    }
+}
+
+// Se llama a la función con el número inicial de letras y espacios, y la cantidad de líneas
+MainDisplayRombo(9, 1, 7);
+
+
 

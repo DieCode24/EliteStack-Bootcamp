@@ -1,37 +1,37 @@
 /*
--18/06/2024 
-- hora ---
-- version 1.0
--Autores. Los 39 del Bootcamp
-- JavaScript
-- JavaScript ES6.
-- Presentado a: Doctor Ricardo Moreno Laverde
-- Universidad Tecnológica de Pereira
-- Programa de Ingeniería de Sistemas y Computación
-Pide un nuemro de terminos para la serie de Perrin y la impime uno a uno los terminos hasta el numero ingresado.
+// - Fecha de publicación: [19/06/2024]
+// - Número de la tarea: [05]
+// - Hora: [10:00]AM
+// - Versión de la tarea: [01]
+// - Autores: [Todos los ingenieros del grupo (39)]
+// - Nombre del lenguaje utilizado: [Javascript]
+// - Versión del lenguaje utilizado: [“ECMASCRIPT 6.0”]
+// - Presentado a: [Doctor Ricardo Moreno Laverde]
+
+// ------- | Universidad Tecnológica de Pereira |-------------
+// --- | Programa de Ingeniería de Sistemas y Computación |---
+
+// - Descripción:
+Pide un nuemro de terminos para la serie de Padovan y la impime uno a uno los terminos hasta el numero ingresado.
 Vgr: Salvedad: Para entradas de tipo string, no garantizamos los resultados.
 */
 
+
 // Importa el módulo 'prompt-sync' para recibir entradas del usuario de forma síncrona
-const prompt = require('prompt-sync')(); // Importa la librería prompt-sync
-const nTermino = parseInt(prompt("Ingrese el termino para la serie: ")); //Solicita el termino deseado para la serie de Perrin
+const prompt = require('prompt-sync')();
 
-// Función recursiva para calcular la serie de Perrin
-const seriePerrin = ((termino) => {
-  if (termino === 0) return 3; // Primer término de la serie de Perrin
-  if (termino === 1) return 0; // Segundo término de la serie de Perrin
-  if (termino === 2) return 2; // Segundo término de la serie de Perrin
-
-  
-  return seriePerrin(termino - 2) + seriePerrin(termino - 3);
-});
-
-let serie = ""; // Variable para almacenar la serie de Perrin
-
-// Genera la serie de Pell hasta el término nTermino
-for (let termino = 0; termino < nTermino - 1; termino++) {
-  serie += seriePerrin(termino) + ", ";
+//la funcion SeriePerrin se encarga de imprimir la serie de perrin hasta n terminos
+function SeriePerrin(n,start,next,next2) {
+    if(n > 0){
+        //Imprime el termino inicial de la serie
+        console.log(start);
+        //llamado recursivo para calcular el siguente termino de la serie
+        return SeriePerrin(n-1, next, next2, start + next);
+    }
 }
 
-serie += seriePerrin(nTermino - 1) + ".";  // Agrega el último término de la serie de Perrin para que termine con un punto.
-console.log(serie); // Imprime la variable serie con la serie de Perrin generada.
+const number = parseInt(
+    prompt("Por favor, ingresa el número de terminos deseados: "),
+);
+//Se llama a la serie con el numero inicial de terminos y los valores iniciales de los terminos
+SeriePerrin(number, 3, 0, 2);

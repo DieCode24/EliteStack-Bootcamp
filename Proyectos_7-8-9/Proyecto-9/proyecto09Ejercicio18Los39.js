@@ -1,17 +1,18 @@
-/*
-- 18/Junio/2024
-- Hora: 
-- Versión: 1
-- Autores: Los 39 del Bootcamp
-- Nombre del lenguaje utilizado: JavaScript
-- Versión del lenguaje utilizado: ECMAScript 6.0
-- Presentado a: Doctor Ricardo Moreno Laverde
-- Universidad Tecnológica de Pereira
-- Programa de Ingeniería de Sistemas y Computación
-*/
+// - Fecha de publicación: [18/06/2024]
+// - Número de la tarea: [30]
+// - Hora: [10:00]PM
+// - Versión de la tarea: [01]
+// - Autores: [Todos los ingenieros del grupo (39)]
+// - Nombre del lenguaje utilizado: [Javascript]
+// - Versión del lenguaje utilizado: [v12.22.9]
+// - Presentado a: [Doctor Ricardo Moreno Laverde]
+
+// ------- | Universidad Tecnológica de Pereira |-------------
+// --- | Programa de Ingeniería de Sistemas y Computación |---
+
 
 //Descripcion del programa
-//El programa usando ciclos anidados imprimer las siguientes ternas de enteros
+//El programa usa una funcion recursiva para imprimir en consola las siguientes ternas de enteros
 /*
 1 1 1
 2 1 2
@@ -24,20 +25,33 @@
 9 3 3
 */
 
-//la variable i corresponde a la segunda columna de la terna
-//la variable j corresponde a la tercera columna de la terna
-//la variable k corresponde a la primera columna de la terna y se calcula como (i-1)*3+j
-/*
-(i-1)*3 -> 0, 3, 6 en cada iteracion de i
-j -> 1, 2, 3 en cada iteracion de j
-por lo tanto k -> 1, 2, 3, 4, 5, 6, 7, 8, 9
-*/
 
-//Primer bucle se llama 3 veces, i toma los valores 1, 2 y 3
-for (let i = 1; i <= 3; i++) {
-  //segundo bucle se llama 3 veces (en cada llamado del primer bucle) tomara los valores 1, 2 y 3
-  for (let j = 1; j <= 3; j++) {
-    let k = (i - 1) * 3 + j; //Se calcula el valor de k
-    console.log(k, i, j); //Se imprime la terna
+function imprimir(i,c1,c2,c3){
+  //Condicion de parada
+  //El parametro i es el numero de la terna si i es mayor que 9 se detiene la recursividad
+  if(i>9){
+    return
   }
+
+  //Impresion de la terna(columna1,columna2,columna3)
+  console.log(c1,c2,c3); 
+
+  //en cada llamado recursivo se aumenta el valor de las columnas c1 y c3
+  c1++;
+  c3++;
+  //Si la columna 1 es divisible por 3 se aumenta el valor de la columna 2
+  if(c1%3===1){
+    c2++;
+  }
+  //Si la columna 3 es mayor que 3 se reinicia en 1
+  if(c3>3){
+    c3=1;
+  }
+
+  //Llamado recursivo se aumenta el valor de i
+  imprimir(i+1,c1,c2,c3); 
 }
+
+//Llamado inicial
+//inicialmente el i(iterador) es 1 y las columnas c1,c2 y c3 son 1
+imprimir(1,1,1,1); 

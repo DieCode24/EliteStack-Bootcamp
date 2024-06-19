@@ -1,16 +1,16 @@
-/*
-- 18/Junio/2024
-- Hora: 
-- Versión: 1
-- Autores: Los 39 del Bootcamp
-- Nombre del lenguaje utilizado: JavaScript
-- Versión del lenguaje utilizado: ECMAScript 6.0
-- Presentado a: Doctor Ricardo Moreno Laverde
-- Universidad Tecnológica de Pereira
-- Programa de Ingeniería de Sistemas y Computación
-*/
+// - Fecha de publicación: [18/06/2024]
+// - Número de la tarea: [30]
+// - Hora: [10:00]PM
+// - Versión de la tarea: [01]
+// - Autores: [Todos los ingenieros del grupo (39)]
+// - Nombre del lenguaje utilizado: [Javascript]
+// - Versión del lenguaje utilizado: [v12.22.9]
+// - Presentado a: [Doctor Ricardo Moreno Laverde]
 
-//Descripcion del programa
+// ------- | Universidad Tecnológica de Pereira |-------------
+// --- | Programa de Ingeniería de Sistemas y Computación |---
+
+// - Descripción:
 //Lee un numero entero N, no negativo y muestra la suma de los factoriales de todos los numero desde 0 hasta N
 
 //importar la libreria prompt-sync
@@ -18,20 +18,20 @@ const prompt = require("prompt-sync")();
 
 //Definicion de funciones a utilizar
 
-//funcion para calcular el factorial de un numero
+//Funcion recursiva para calcular el factorial de un numero
 function factorial(numero) {
-  if (numero == 0) {
+  if (numero == 0) {// Condicion de parada
     //si el numero es 0
     return 1; //el factorial de 0 es 1
   } else {
     //si el numero es diferente de 0
-    return numero * factorial(numero - 1); //se calcula el factorial del numero
+    return numero * factorial(numero - 1); //Llamado recursivo 
   }
 }
 
-//funcion para calcular la suma de los factoriales de los numeros desde 0 hasta N
+//funcion recursiva para calcular la suma de los factoriales de los numeros desde 0 hasta N
 function sumaFactoriales(numero) {
-  if (numero == 0) {
+  if (numero == 0) {//Condicion de parada
     //si el numero es 0
     return factorial(numero); //retorna el factorial de 0
   } else {
@@ -40,26 +40,23 @@ function sumaFactoriales(numero) {
   }
 }
 
-//Programa principal
-let numeroEsNegativo = true; //Variable para verificar si el numero ingresado es positivo
-
-let numero; //Variable para almacenar el numero ingresado por el usuario
-
-while (numeroEsNegativo) {
-  //Se solicita al usuario que ingrese un numero entero no negativo
-  numero = prompt("Ingrese un numero entero no negativo: ");
-
-  //Se convierte el numero ingresado a entero
-  numero = parseInt(numero);
-  if (numero >= 0) {
-    numeroEsNegativo = false;
-  } else {
-    console.log("ERROR: EL numero es negativo");
+//Funcion para leer un numero entero no negativo-> retorna el numero
+function leerNumero(){
+  let numero=parseInt(prompt("Ingrese un numero entero no negativo: "));
+  if(isNaN(numero) || numero<0){
+    console.log("El numero ingresado no es valido, intente de nuevo");
+    return leerNumero();
   }
+  return numero;
 }
 
-let resultado = sumaFactoriales(numero); // Variable para almacenar el resultado de la suma de los factoriales
 
-console.log(
-  `La suma de los factoriales de los numeros desde 0 hasta ${numero} es: ${resultado}`
-);
+//Inicio del programa
+function main(){
+  console.log("Programa para calcular la suma de los factoriales de los numeros desde 0 hasta N");
+  let numero=leerNumero();
+  let resultado=sumaFactoriales(numero);
+  console.log(`La suma de los factoriales de los numeros desde 0 hasta ${numero} es: ${resultado}`);
+}
+
+main(); //Ejecucion de la funcion principal

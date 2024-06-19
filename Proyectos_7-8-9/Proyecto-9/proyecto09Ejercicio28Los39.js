@@ -1,7 +1,7 @@
-// - Fecha de publicación: [18/06/2024]
+// - Fecha de publicación: [19/06/2024]
 // - Número de la tarea: [28]
-// - Hora: [10:00]PM
-// - Versión de la tarea: [01]
+// - Hora: [10:53]AM
+// - Versión de la tarea: [02]
 // - Autores: [Todos los ingenieros del grupo (39)]
 // - Nombre del lenguaje utilizado: [Javascript]
 // - Versión del lenguaje utilizado: [v12.22.9]

@@ -4,7 +4,7 @@
 // - Versión de la tarea: [01]
 // - Autores: [Todos los ingenieros del grupo (39)]
 // - Nombre del lenguaje utilizado: [Javascript]
-// - Versión del lenguaje utilizado: [v12.22.9]
+// - Versión del lenguaje utilizado: [“ECMASCRIPT 6.0”]
 // - Presentado a: [Doctor Ricardo Moreno Laverde]
 
 // ------- | Universidad Tecnológica de Pereira |-------------
@@ -25,11 +25,11 @@ let numeroTerminos = parseInt(prompt('Ingrese el número de terminos de la serie
 // Descripción: Calcula el factorial de un número n de manera recursiva.
 function factorial(n) {
     // Condición de terminación (caso base)
-    if (n === 0 || n === 1) {
+    if (n === 0 || n === 1) { // Casos bases del factorial
         return 1;
     }
     // Llamada recursiva
-    return n * factorial(n - 1);
+    return n * factorial(n - 1); // Recursión para cada número del factorial
 }
 
 // Función cosTaylor(iteraciones)
@@ -40,10 +40,10 @@ function factorial(n) {
 const cosTaylor = (iteraciones) => {
     // Condición de terminación (caso base)
     if(iteraciones > 0){ //Se hace el calcula para el termino n actual y se suma con el termino n-1 llamando a la función recursivamente.
-        return (-1)**iteraciones * VALOR_X**(2*iteraciones) / factorial(2*iteraciones) + cosTaylor( iteraciones - 1);
+        return (-1)**iteraciones * VALOR_X**(2*iteraciones) / factorial(2*iteraciones) + cosTaylor( iteraciones - 1); // Serie de taylor del coseno
     }
     else{
-        return 1;
+        return 1; // Caso base
     }
 }
 

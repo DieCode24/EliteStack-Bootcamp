@@ -1,10 +1,10 @@
-// - Fecha de publicación: [18/06/2024]
+// - Fecha de publicación: [19/06/2024]
 // - Número del ejercicio: [22]
 // - Hora: [12:12]AM
 // - Versión de la tarea: [03]
 // - Autores: [Todos los ingenieros del grupo (39)]
 // - Nombre del lenguaje utilizado: [Javascript]
-// - Versión del lenguaje utilizado: [v12.22.9]
+// - Versión del lenguaje utilizado: [EMASCRIPT 6.0]
 // - Presentado a: [Doctor Ricardo Moreno Laverde]
 
 // ------- | Universidad Tecnológica de Pereira |-------------
@@ -17,7 +17,7 @@ const prompt = require("prompt-sync")();
 // Proposito: Imprimir una piramide invertida
 
 function imprimirEspacios(cantidad) {
-    return ' '.repeat(cantidad);//.repeat es un método para concatenar un número de veces la copia del mismo
+    return ' '.repeat(cantidad + 33 );//.repeat es un método para concatenar un número de veces la copia del mismo y se suma 33 para hacer los 33 espacios en los que arranca la piramide
 }
 
 function imprimirP(p) {

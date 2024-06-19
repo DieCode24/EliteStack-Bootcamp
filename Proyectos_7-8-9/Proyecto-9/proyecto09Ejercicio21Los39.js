@@ -1,21 +1,23 @@
-/*
--Fecha de publicación: 18 de Junio de 2024
--Hora: 11:57 PM
-- Versión de su código: 12
-- Autores. Ing(c) del bootcamp
-- Nombre del lenguaje utilizado: Javascript y Node.js
-- Versión del lenguaje utilizado: ECMAScript 6, Node.js 14.17.0 
-- Presentado a: Doctor Ricardo Moreno Laverde
-- Universidad Tecnológica de Pereira
-- Programa de Ingeniería de Sistemas y Computación
-- Programa para dibujar una piramide de letras en pantalla, cafa fila cambiara de letra
-    PPPPPPPPPPPPP
-     NNNNNNNNNNN
-      LLLLLLLLL
-       JJJJJJJ
-        HHHHH
-         FFF
-          D
+// - Fecha de publicación: [19/06/2024]
+// - Número de la tarea: [4]
+// - Hora: [10:00]AM
+// - Versión de la tarea: [09]
+// - Autores: [Todos los ingenieros del grupo (39)]
+// - Nombre del lenguaje utilizado: [Javascript]
+// - Versión del lenguaje utilizado: [“ECMASCRIPT 6.0”]
+// - Presentado a: [Doctor Ricardo Moreno Laverde]
+
+// ------- | Universidad Tecnológica de Pereira |-------------
+// --- | Programa de Ingeniería de Sistemas y Computación |---
+/* 
+    - Programa para dibujar una piramide de letras en pantalla, cafa fila cambiara de letra
+        PPPPPPPPPPPPP
+         NNNNNNNNNNN
+          LLLLLLLLL
+           JJJJJJJ
+            HHHHH
+             FFF
+              D
 */
 
 const CARACTERES = { // Objetos con el que guardaremos una clave valor en la cual cada letra o caracter tendra un numero asignado
@@ -28,34 +30,37 @@ const CARACTERES = { // Objetos con el que guardaremos una clave valor en la cua
     7: "D"
 }
 
-let string = "";
-let letras = 1; // Variable que lleva el indice de las letras o caracteres que se van a imprimir
-// Variables que vamos a usar como condicion para imprimir correctamente cada fila y formar la figura
-let columnas1 = 13; 
-let columnas2 = 13;
-// Variable para llevar el conteo de los espacios
-let espacios = 13;
-// Variable para llevar el conteo de los caracteres
-let totalCaracteres = 0;
-
-// Bucle para imprimir cada una de las filas
-for (let filas = 0; filas < 7; filas++) {
-    // Bucle para imprimir cada uno de los espacios
-    while (espacios < columnas1) {
-        process.stdout.write(" "); // process.stdout.write nos sirve para imprimir sin un salto de linea automatico
-        espacios++;
+// funcion recursiva para imprimir cada uno de los espacios
+function espaciosCount(espacios, columnas1){
+    if (espacios >= columnas1){ // Condicion de parada cuando los espacios lleguen a ser igual a la columna
+        return ""; // Devuelve un string vacio, para que no se realice ningun otro proceso en este punto
+    } else {
+        // process.stdout.write es metodo para imprimir en pantalla sin el salto de linea automatico que posee el console.log
+        process.stdout.write(" ");  // process.stdout.write genera directamente en la consola 
+        espaciosCount(espacios + 1, columnas1); // Llamado recursivo enviando espacios +1
     }
-    // Bucle para imprimir las letras
-    while (totalCaracteres < columnas2) {
-        string += CARACTERES[letras];
-        totalCaracteres++;
-    }
-    // Reiniciar variables y ajustar valores
-    console.log(string);
-    string = "";
-    totalCaracteres = 0;
-    espacios = 13;
-    columnas1 += 1;
-    columnas2 -= 2;
-    letras++;
 }
+
+// Funcion recursiva para imprimir las letras
+function imprimirCaracteres(totalCaracteres, letras, columnas2){
+    if (totalCaracteres >= columnas2){ // Condicion de parada cuando totalCaracter llegue a ser igual que columnas2
+        console.log(""); // Es una forma de hacer un salto de linea
+    } else {
+        process.stdout.write(CARACTERES[letras]); // Escribe en pantallla los caracteres dependieno de la clave correspondiente
+        imprimirCaracteres(totalCaracteres + 1, letras, columnas2) // Llamado recursivo aumentando 1 el contador de caracteres
+    }
+}
+
+// Funcion recursiva para imprimir cada una de las filas
+function filasCount(filas, totalCaracteres, columnas1, columnas2, espacios, letras) {
+    if (filas >= 7){ // Condicion de parada cuando filas llegue a la cantidad que necesitamos
+        return ""; // Devuelve un string vacio, para que no se realice ningun otro proceso en este punto
+    } else {
+        espaciosCount(espacios, columnas1); // Llamada a al funcion que imprime los espacios
+        imprimirCaracteres(totalCaracteres, letras, columnas2); // Llamada a al funcion que imprime las letras
+        filasCount(filas + 1, 0, columnas1 + 1, columnas2 - 2, 0, letras + 1) // Llamado recursivo para las filas
+    }
+}
+
+// Inicio del programa
+filasCount(0, 0, 0, 13, 0, 1);

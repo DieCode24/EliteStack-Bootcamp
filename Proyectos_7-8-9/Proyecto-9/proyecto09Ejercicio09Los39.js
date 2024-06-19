@@ -1,11 +1,11 @@
 /*
- - Fecha de publicación: [18/06/2024]
- - Número de la tarea: [28]
+ - Fecha de publicación: [19/06/2024]
+ - Número de la tarea: [09]
  - Hora: [10:00]PM
- - Versión de la tarea: [01]
+ - Versión de la tarea: [09]
  - Autores: [Todos los ingenieros del grupo (39)]
  - Nombre del lenguaje utilizado: [Javascript]
- - Versión del lenguaje utilizado: [v12.22.9]
+ - Versión del lenguaje utilizado: ["ECMASCRIPT 6.0"]
  - Presentado a: [Doctor Ricardo Moreno Laverde]
 
  ------- | Universidad Tecnológica de Pereira |-------------
