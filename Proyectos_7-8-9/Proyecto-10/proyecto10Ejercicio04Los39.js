@@ -19,7 +19,7 @@
 const prompt = require('prompt-sync')();
 
 // Pide al usuario que escriba cuántos términos quiere en la serie de Pell
-const nTerminos = parseInt(prompt("Cuántos términos quieres en la serie de Pell? "));
+const nTerminos = parseInt(prompt("Cuántos términos quieres en la serie de Pell? => "));
 
 // Función que calcula la serie de Pell usando ciclos for
 const calcularSeriePell = (n) => {
@@ -36,6 +36,7 @@ const calcularSeriePell = (n) => {
     serie.push(nuevoTermino);
   }
 
+  // Devuelve la serie Pell solicitada
   return serie;
 };
 
