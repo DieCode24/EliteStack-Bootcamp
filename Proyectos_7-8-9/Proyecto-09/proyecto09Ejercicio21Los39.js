@@ -10,7 +10,7 @@
 // ------- | Universidad Tecnológica de Pereira |-------------
 // --- | Programa de Ingeniería de Sistemas y Computación |---
 /* 
-    - Programa para dibujar una piramide de letras en pantalla, cafa fila cambiara de letra
+    - Programa para dibujar una piramide de letras en pantalla, cada fila cambiara de letra
         PPPPPPPPPPPPP
          NNNNNNNNNNN
           LLLLLLLLL
