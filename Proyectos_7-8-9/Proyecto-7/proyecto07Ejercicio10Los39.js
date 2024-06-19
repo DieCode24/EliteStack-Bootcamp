@@ -11,17 +11,17 @@
 // --- | Programa de Ingeniería de Sistemas y Computación |---
 
 // - Descripción:
-// Programa que convierte de mphData (millas por hora) a m/s
+// Programa que convierte de mph (millas por hora) a m/s
 
 
 //npm install readline-sync
 const readLineSync = require('readline-sync');
 
-let mphData = readLineSync.question("por favor digite la cantidad de mphData que desea convertir a m/s: ");//guarda las millas por hora
+console.log("# Programa que convierte de mph (millas por hora) a m/s\n\n")    // Titulo del programa (UX - Amable con el usuario)
 
-mphData=parseFloat(mphData);
-let mseg= 0.44704 * mphData;//calcula los metros por segundo
+let mphData = readLineSync.question("Usuario, por favor digite la cantidad de mph que desea convertir a m/s => ");    // Guarda las millas por hora
 
-console.log(` ${mphData} mphData equivale a ${mseg} m/s`);
+mphData = parseFloat(mphData);    // Convierte en flotante los datos registrados
+let msData = (0.44704 * mphData);    // Calcula los metros por segundo
 
-
+console.log(` ${mphData} mphData equivale a ${msData} m/s`);  // Imprime el resultado, con el valor del angulo restante

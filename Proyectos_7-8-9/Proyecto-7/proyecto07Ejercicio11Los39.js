@@ -1,18 +1,20 @@
-/*
--Fecha de publicación: 18/06/2024
--Hora:7:40 pm
-- 1.0.0
---autor: los 39
-- JavaScript
-- version ECMAScript 2019
-- Presentado a: Doctor Ricardo Moreno Laverde
-- Universidad Tecnológica de Pereira
-- Programa de Ingeniería de Sistemas y Computación
-- descripcion: a partir de horas minutos y segundos calcula el total de milisegundos
-*/
+// - Fecha de publicación: [19/06/2024]
+// - Número de la tarea: [11]
+// - Hora: [12:00]PM
+// - Versión de la tarea: [01]
+// - Autores: [Todos los ingenieros del grupo (39)]
+// - Nombre del lenguaje utilizado: [Javascript]
+// - Versión del lenguaje utilizado: [“ECMASCRIPT 6.0”]
+// - Presentado a: [Doctor Ricardo Moreno Laverde]
+
+// ------- | Universidad Tecnológica de Pereira |-------------
+// --- | Programa de Ingeniería de Sistemas y Computación |---
+
+// - Descripción:
+// Programa que a partir de horas minutos y segundos calcula el total de milisegundos
+
+
 //npm install readline-sync
-
-
 const readlineSync = require('readline-sync');
 
 
