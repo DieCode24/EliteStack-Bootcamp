@@ -12,22 +12,23 @@
  --- | Programa de Ingeniería de Sistemas y Computación |---
 
 - Descripción:
+Diseñe un algoritmo y operacionalícelo, tal que lea un número entero positivo, de tres cifras (N <= 999 Y N>=100) y determine si el
+número es capicúo (es igual al revés del número original).
 */
 
 const PromptSync = require('prompt-sync')();// se importa la libreria prompt-sync en una constante PromptSync
 
 function NumCapicuo(){//Metodo para decir si un numero es capicuo o no
     let value = PromptSync('Escriba un numero de 3 cifras: ');//le pide al usuario el numero
-    while(value<100 || value>999){//En caso de que no este en el rango, que lo vuelva a pedir
-        console.log(`Error, el numero ${value} no esta en el rango`);
-        value = PromptSync('Vuelva a intentarlo: ');//se le vuelve a pedir al usuario el numero de 3 cifras
-    }
-    if(value%10===Math.floor(value/100)){//Confirma si es capicúo
+    if((value <= 100) || (value >= 999)){//En caso de que no este en el rango, que lo vuelva a pedir
+        console.log(`Error, el numero ${value} no esta en el rango`); // Muestra por pantalla que el numero no esta en el rango
+    }else if(value % 10 === Math.floor(value/100)){//Confirma si es capicúo
                                         //math.floor devuelve el entero de la division y el % el resto
         console.log(`El numero ${value} es capicúo`);//Si si lo es, imprime esto
     }else{
         console.log(`El numero ${value} no es capicúo`);//en caso contrario
     }
 }
+
 
 NumCapicuo();//llamado al metodo

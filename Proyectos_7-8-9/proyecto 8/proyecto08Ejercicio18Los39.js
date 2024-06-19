@@ -1,11 +1,11 @@
 /*18-
- - Fecha de publicación: [18/06/2024]
- - Número de la tarea: [28]
- - Hora: [10:00]PM
- - Versión de la tarea: [01]
+ - Fecha de publicación: [19/06/2024]
+ - Número de la tarea: [18]
+ - Hora: [10:35]PM
+ - Versión de la tarea: [02]
 /- Autores: [Todos los ingenieros del grupo (39)]
  - Nombre del lenguaje utilizado: [Javascript]
- - Versión del lenguaje utilizado: [v12.22.9]
+ - Versión del lenguaje utilizado: ["ECMASCRIPT 6.0"]
  - Presentado a: [Doctor Ricardo Moreno Laverde]
 
  ------- | Universidad Tecnológica de Pereira |-------------
@@ -16,8 +16,8 @@ estacionamiento de su vehículo, conociendo el tiempo de estacionamiento en hora
 
 const prompt = require ('prompt-sync')();
 // Preguntamos al usuario por las horas y minutos de estacionamiento.
-let horas = parseInt(prompt("Ingrese las horas de estacionamiento:"));
-let minutos = parseInt(prompt("Ingrese los minutos de estacionamiento:"));
+let horas = parseInt(prompt("Ingrese las horas de estacionamiento:")); // Se establecen las horas que estuvo el usuario
+let minutos = parseInt(prompt("Ingrese los minutos de estacionamiento:"));// se establecen los minutos que estuvo el usuario
 
 // Definimos el costo por hora o fracción.
 const costoPorHora = 1800;

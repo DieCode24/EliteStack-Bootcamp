@@ -1,7 +1,7 @@
 // - Fecha de publicación: [18/06/2024]
-// - Número de la tarea: [30]
-// - Hora: [10:00]PM
-// - Versión de la tarea: [01]
+// - Número de la tarea: [01]
+// - Hora: [10:00]AM
+// - Versión de la tarea: [02]
 // - Autores: [Todos los ingenieros del grupo (39)]
 // - Nombre del lenguaje utilizado: [Javascript]
 // - Versión del lenguaje utilizado: [v12.22.9]
@@ -31,25 +31,17 @@ console.log("Este programa, lee un número entre uno(1) y cinco(5), e imprime si
 
 // Se define la función 'esPrimo' que determina si un número es primo.
 function esPrimo(numero) {
-    // Si el número es 1, no es primo por definición, por lo que retorna falso.
-    if (numero == 1) {
-        return "El número no es primo.";
+    if (numero == 1 || numero == 4) {     //Este condicional if me compara si el numero es 1 o 4, de ser asi imprime no es primo, de lo contrario imprime es primo 
+        return "No es primo";             //Tenemos en cuenta que || es un operador logico OR, se usa para evaluar dos expresiones y se cumple si una o la otra es verdadera
+    } else {
+        return "Es primo";
     }
-    // Se itera desde 2 hasta el número - 1 para verificar si el número tiene divisores.
-    for (var i = 2; i < numero; i++) {
-        // Si el número es divisible por 'i', entonces no es primo y retorna falso.
-        if (numero % i === 0) {
-            return "El número no es primo.";
-        }
-    }
-    // Si el número no tiene divisores además de 1 y sí mismo, es primo y retorna verdadero.
-    return "El número es primo";
 }
 
-// Se define la función 'pedirNumero' que solicita al usuario ingresar un número.
+// Se define la función 'pedirNumero' que permite al usuario ingresar un número.
 function pedirNumero() {
     // Se hace una pregunta al usuario y se espera su respuesta.
-    let numero = prompt("Entre un número: ");
+    let numero = parseInt(prompt("Entre un número: "));
     // Se verifica si el número ingresado está entre 1 y 5.
     if (numero >= 1 && numero <= 5) {
         // Si es así, se imprime si el número es primo o no.

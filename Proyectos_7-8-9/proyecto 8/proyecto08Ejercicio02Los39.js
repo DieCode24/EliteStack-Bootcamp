@@ -1,7 +1,7 @@
 // - Fecha de publicación: [18/06/2024]
-// - Número de la tarea: [30]
+// - Número de la tarea: [02]
 // - Hora: [10:00]PM
-// - Versión de la tarea: [01]
+// - Versión de la tarea: [02]
 // - Autores: [Todos los ingenieros del grupo (39)]
 // - Nombre del lenguaje utilizado: [Javascript]
 // - Versión del lenguaje utilizado: [v12.22.9]
@@ -28,6 +28,7 @@ function esPar(numero) {
   return numero % 2 === 0;
 }
 
+// Imprime el texto inicial.
 console.log("Este programa lee un número e imprime si es par o impar\n");
 // Función para pedir al usuario que ingrese un número y mostrar si es par o impar.
 function pedirNumero() {

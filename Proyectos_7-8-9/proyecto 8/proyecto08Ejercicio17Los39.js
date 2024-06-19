@@ -1,10 +1,10 @@
 // - Fecha de publicación: [18/06/2024]
-// - Número de la tarea: [28]
-// - Hora: [10:00]PM
+// - Número de la tarea: [17]
+// - Hora: [6:00]PM
 // - Versión de la tarea: [01]
 // - Autores: [Todos los ingenieros del grupo (39)]
 // - Nombre del lenguaje utilizado: [Javascript]
-// - Versión del lenguaje utilizado: [v12.22.9]
+// - Versión del lenguaje utilizado: ["ECMASCRIPT 6.0"]
 // - Presentado a: [Doctor Ricardo Moreno Laverde]
 
 // ------- | Universidad Tecnológica de Pereira |-------------
@@ -19,20 +19,13 @@
  de manera sincrónica, validando las entradas para asegurar que sean números 
  válidos antes de realizar el cálculo del IMC y mostrar el diagnóstico correspondiente.*/
 
-
-const readline = require('readline');
-
-// Crear una interfaz de lectura y escritura
-const rl = readline.createInterface({
-  input: process.stdin, // Utilizar la entrada estándar (teclado)
-  output: process.stdout // Utilizar la salida estándar (consola)
-});
-
-// Función para calcular el IMC y mostrar el diagnóstico
+const prompt = require('prompt-sync')();
+ 
+ // Función para calcular el IMC y mostrar el diagnóstico
 function calcularIMC(peso, altura) {
-  // Calcular el IMC
+   // Calcular el IMC
   const imc = peso / (altura * altura);
-
+ 
   // Determinar el diagnóstico basado en el IMC
   let diagnostico = '';
   if (imc < 16) {
@@ -52,40 +45,25 @@ function calcularIMC(peso, altura) {
   } else {
     diagnostico = 'Obesidad mórbida (obesidad de grado IV)'; // IMC mayor o igual a 40
   }
-
-  // Mostrar el resultado del cálculo del IMC y el diagnóstico
-  console.log(`Tu IMC es: ${imc.toFixed(2)}`); // Mostrar el IMC redondeado a 2 decimales
-  console.log(`Tienes: ${diagnostico}`); // Mostrar el diagnóstico según el IMC calculado
-
-  // Cerrar la interfaz después de mostrar el resultado
-  rl.close();
-}
-
-// Preguntar al usuario por el peso
-rl.question('Introduce tu peso en kg: ', (peso) => {
-  // Convertir el peso a número (parseFloat para permitir decimales)
-  peso = parseFloat(peso);
+ 
+   // Mostrar el resultado del cálculo del IMC y el diagnóstico
+   console.log(`Tu IMC es: ${imc.toFixed(2)}`); // Mostrar el IMC redondeado a 2 decimales
+   console.log(`Tienes: ${diagnostico}`); // Mostrar el diagnóstico según el IMC calculado
+ }
+ 
+ let peso = parseFloat(prompt("Introduce tu peso en kg: "));
 
   // Validar que el peso sea un número válido
   if (isNaN(peso)) {
     console.error('El peso ingresado no es válido.');
-    rl.close(); // Cerrar la interfaz si el peso no es válido
-    return;
-  }
-
-  // Preguntar al usuario por la altura
-  rl.question('Introduce tu altura en metros: ', (altura) => {
-    // Convertir la altura a número (parseFloat para permitir decimales)
-    altura = parseFloat(altura);
-
+  } else {
+    let altura = parseFloat(prompt("Ingrese tu altura en metros: "));
     // Validar que la altura sea un número válido
     if (isNaN(altura)) {
       console.error('La altura ingresada no es válida.');
-      rl.close(); // Cerrar la interfaz si la altura no es válida
       return;
+    } else {
+      // Calcular el IMC y mostrar el diagnóstico
+      calcularIMC(peso, altura);
     }
-
-    // Calcular el IMC y mostrar el diagnóstico
-    calcularIMC(peso, altura);
-  });
-});
+  }
