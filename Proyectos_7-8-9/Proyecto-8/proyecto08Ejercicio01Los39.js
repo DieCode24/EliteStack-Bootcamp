@@ -27,6 +27,7 @@ primos. */
 // Se importa el módulo 'prompt-sync' para habilitar la lectura sincrónica desde la línea de comandos.
 const prompt = require('prompt-sync')();
 
+
 console.log("Este programa, lee un número entre uno(1) y cinco(5), e imprime si es primo o no.\n")
 
 // Se define la función 'esPrimo' que determina si un número es primo.
