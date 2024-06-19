@@ -15,7 +15,7 @@
 
 console.log(`Este programa presenta la serie de Fibonacci como la serie que comienza con los dígitos 1 y 0 y va
 sumando progresivamente los dos últimos elementos de la serie, así: 0 1 1 2 3 5 8 13 21 34.......
-Para este programa, se presentará la serie de Fibonacci hasta llegar sin sobrepasar el número 10,000.`);
+Para este programa, se presentará la serie de Fibonacci hasta llegar sin sobrepasar el número 10,000.\n\n`);
 
 //Funcion principal que muestra los números de la sucesiónn de Fibbonacci cuando el valor de este es menor a 10000
 function Fibonacci(n1, n2) {
@@ -27,4 +27,4 @@ function Fibonacci(n1, n2) {
 }; //Fin función
 
 //Llamada a la función principal
-Fibonacci(1, 1);
+Fibonacci(0, 1);
