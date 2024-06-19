@@ -24,4 +24,8 @@ let mphData = readLineSync.question("Usuario, por favor digite la cantidad de mp
 mphData = parseFloat(mphData);    // Convierte en flotante los datos registrados
 let msData = (0.44704 * mphData);    // Calcula los metros por segundo
 
-console.log(` ${mphData} mphData equivale a ${msData} m/s`);  // Imprime el resultado, con el valor del angulo restante
+/*
+0.44704: Este es un factor de conversión constante que se utiliza para convertir de millas por hora a metros por segundo
+*/
+
+console.log(`\n\n${mphData} mph equivale a ${msData} m/s`);  // Imprime el resultado
