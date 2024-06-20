@@ -37,37 +37,34 @@ function parsePolynomial(polynomial) {
     Esta expresión regular está diseñada para coincidir con los diferentes términos de un polinomio.
 
     ([+-]?\d*\.?\d*)X: Esta parte coincide con el coeficiente y la variable X.
-
-    [+-]?: Coincide opcionalmente con un signo más o menos.
-    \d*: Coincide con cero o más dígitos.
-    \.?: Coincide opcionalmente con un punto decimal.
-    \d*: Coincide nuevamente con cero o más dígitos después del punto decimal.
-    X: Coincide literalmente con la letra X (la variable).
+        [+-]?: Coincide opcionalmente con un signo más o menos.
+        \d*: Coincide con cero o más dígitos.
+        \.?: Coincide opcionalmente con un punto decimal.
+        \d*: Coincide nuevamente con cero o más dígitos después del punto decimal.
+        X: Coincide literalmente con la letra X (la variable).
 
 
     (?:\((-?\d+)\)|(\d+))?: Esta parte es opcional y coincide con el exponente.
-
-    (?:...): Un grupo no capturante.
-    \((-?\d+)\): Coincide con un exponente entre paréntesis, permitiendo números negativos.
-    |: O bien...
-    (\d+): Coincide con un exponente sin paréntesis (solo números positivos).
-    El ? al final hace que todo este grupo sea opcional.
+        (?:...): Un grupo no capturante.
+        \((-?\d+)\): Coincide con un exponente entre paréntesis, permitiendo números negativos.
+        |: O bien...
+        (\d+): Coincide con un exponente sin paréntesis (solo números positivos).
+        El ? al final hace que todo este grupo sea opcional.
 
 
     |: Este operador OR separa la expresión anterior de la siguiente alternativa.
-    ([+-]?\d+): Esta parte coincide con términos constantes (sin X).
 
-    [+-]?: Coincide opcionalmente con un signo más o menos.
-    \d+: Coincide con uno o más dígitos.
+    ([+-]?\d+): Esta parte coincide con términos constantes (sin X).
+        [+-]?: Coincide opcionalmente con un signo más o menos.
+        \d+: Coincide con uno o más dígitos.
 
 
     /g: Esta bandera al final indica que la búsqueda debe ser global, es decir, encontrar todas las coincidencias en la cadena, no solo la primera.
 
     En resumen, esta expresión regular puede coincidir con:
-
-    Términos con X y coeficiente (ej: 2X, -3.5X)
-    Términos con X, coeficiente y exponente (ej: 2X^2, -3X^(-1), 4X(3))
-    Términos constantes (ej: 5, -7)
+        Términos con X y coeficiente (ej: 2X, -3.5X)
+        Términos con X, coeficiente y exponente (ej: 2X^2, -3X^(-1), 4X(3))
+        Términos constantes (ej: 5, -7)
 
     Esta expresión es bastante robusta y puede manejar una amplia variedad de formatos de términos polinómicos, lo que la hace muy útil para parsear polinomios ingresados por el usuario.
     */
