@@ -69,28 +69,48 @@ function parsePolynomial(polynomial) {
     Esta expresión es bastante robusta y puede manejar una amplia variedad de formatos de términos polinómicos, lo que la hace muy útil para parsear polinomios ingresados por el usuario.
     */
 
+    // Buscar todas las coincidencias en el polinomio usando la expresión regular
     let matches = polynomial.match(termRegex);
 
+    // Si no hay coincidencias, el polinomio es inválido
     if (!matches) {
         console.error("El polinomio proporcionado no es válido.");
         return [];
     }
 
+    // Iterar sobre cada término encontrado
     for (let match of matches) {
+        // Si el término contiene 'X', es un término con variable
         if (match.includes('X')) {
+            // Extraer coeficiente y exponente usando otra expresión regular
             let [_, coefficient, power1, power2] = match.match(/([+-]?\d*\.?\d*)X(?:\((-?\d+)\)|(\d+))?/);
 
-            coefficient = coefficient === '' || coefficient === '+' ? 1 : coefficient === '-' ? -1 : parseFloat(coefficient);
+            // Procesar el coeficiente
+            // Si está vacío o es '+', el coeficiente es 1
+            // Si es '-', el coeficiente es -1
+            // En otro caso, convertir a número flotante
+            coefficient = coefficient === '' || coefficient === '+' ? 1 : 
+                          coefficient === '-' ? -1 : 
+                          parseFloat(coefficient);
 
-            // Si no se especifica la potencia, asumir que es 1
-            let power = power1 !== undefined ? parseInt(power1) : power2 !== undefined ? parseInt(power2) : 1;
+            // Procesar el exponente
+            // Si power1 está definido, usar ese (exponente entre paréntesis)
+            // Si power2 está definido, usar ese (exponente sin paréntesis)
+            // Si ninguno está definido, asumir que el exponente es 1
+            let power = power1 !== undefined ? parseInt(power1) : 
+                        power2 !== undefined ? parseInt(power2) : 
+                        1;
 
+            // Añadir el término [coeficiente, exponente] al array de términos
             terms.push([coefficient, power]);
         } else {
+            // Si el término no contiene 'X', es un término constante
+            // Convertir a entero y añadir al array con exponente 0
             terms.push([parseInt(match), 0]);
         }
     }
 
+    // Devolver el array de términos
     return terms;
 }
 
