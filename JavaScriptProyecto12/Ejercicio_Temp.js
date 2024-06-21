@@ -86,6 +86,36 @@ function parsePolynomial(polynomial) {
             // La expresión regular descompone el término en partes:
             // ([+-]?\d*\.?\d*)X(?:\((-?\d+)\)|(\d+))?
             let [_, coefficient, power1, power2] = match.match(/([+-]?\d*\.?\d*)X(?:\((-?\d+)\)|(\d+))?/);
+            /*
+            Extraer coeficiente y exponente usando otra expresión regular
+            
+            La expresión regular descompone el término en partes:
+            // ([+-]?\d*\.?\d*)X(?:\((-?\d+)\)|(\d+))?
+
+            ([+-]?\d*\.?\d*)X: Esta parte de la expresión regular coincide con el coeficiente seguido de la letra 'X'.
+                [+-]?: Coincide opcionalmente con un signo más o menos.
+                \d*: Coincide con cero o más dígitos.
+                \.?: Coincide opcionalmente con un punto decimal.
+                \d*: Coincide nuevamente con cero o más dígitos después del punto decimal.
+                X: Coincide literalmente con la letra 'X'.
+
+            (?:\((-?\d+)\)|(\d+))?: Esta parte es opcional y coincide con el exponente.
+                (?:...): Define un grupo no capturador, que es una manera de agrupar partes de la expresión regular sin capturarlas como resultado.
+                \((-?\d+)\): Coincide con un exponente entre paréntesis, permitiendo números negativos.
+                |: Es un operador OR que separa las dos opciones dentro del grupo opcional.
+                (\d+): Coincide con un exponente sin paréntesis, que son solo números positivos.
+            */
+
+
+            /*
+            Desestructuración: let [_, coefficient, power1, power2] = match.match(...);
+
+            match.match(/.../) aplica la expresión regular al string match y devuelve un array con los resultados de la coincidencia.
+            [_, coefficient, power1, power2]: Son las variables a las que se asignan los valores coincidentes obtenidos por la expresión regular.
+            _: Es un comodín que puede usarse para ignorar resultados no deseados. En este caso, captura la coincidencia completa del patrón pero no se usa después.
+            coefficient: Representa el coeficiente del término del polinomio encontrado.
+            power1 y power2: Representan los exponentes del término del polinomio. Dependiendo de cómo coincidió la expresión regular, uno de ellos contendrá el valor del exponente.
+            */
 
             // Procesar el coeficiente
             // Si está vacío o es '+', el coeficiente es 1
@@ -235,11 +265,33 @@ function plotPolynomial(valueTable) {
     // Crear una matriz para representar la gráfica, inicializada con espacios en blanco
     const graph = Array.from({ length: rows }, () => Array(cols).fill(' '));
 
+    /*
+    - Dentro de Array.from(), se especifica una función de mapeo que define cómo se deben inicializar los elementos del nuevo array.
+
+    Array(cols) crea un nuevo array interno con cols elementos. Esto establece el número de columnas para cada fila en la matriz bidimensional que estamos creando.
+    - fill(' ') se aplica a cada elemento del array interno recién creado y lo inicializa con espacios en blanco (' ').
+
+    En resumen, Array.from({ length: rows }, () => Array(cols).fill(' ')) es una expresión que crea una matriz bidimensional de tamaño rows x cols, donde cada celda inicialmente contiene un espacio en blanco. Esta matriz se utiliza comúnmente en aplicaciones de representación gráfica o visualización de datos donde se necesita una cuadrícula o una representación tabular inicializada antes de ser modificada con datos específicos.
+    */
+
+
     // Calcular el rango de los valores de X e Y en la tabla de valores
     let minX = Math.min(...valueTable.map(point => point.x));
     let maxX = Math.max(...valueTable.map(point => point.x));
+
+    
     let minY = Math.min(...valueTable.map(point => point.y));
     let maxY = Math.max(...valueTable.map(point => point.y));
+
+    /*
+
+    
+    ... (Spread Operator)
+    El operador de propagación (...) permite expandir un arreglo en una lista de argumentos individuales. En este contexto, se utiliza para expandir el arreglo devuelto por .map() en una lista de argumentos separados.
+
+    Esta línea de código específica (let minX = Math.min(...valueTable.map(point => point.x));) se utiliza para encontrar el valor más bajo de todas las coordenadas x dentro del arreglo valueTable. Es útil en aplicaciones de visualización de datos, gráficos y cualquier otra situación donde sea necesario determinar el extremo inferior del rango de valores de x presentes en un conjunto de datos estructurado como valueTable.
+    */
+
 
     // Calcular las escalas para ajustar los puntos a las dimensiones de la gráfica
     let xScale = (cols - 1) / (maxX - minX);
