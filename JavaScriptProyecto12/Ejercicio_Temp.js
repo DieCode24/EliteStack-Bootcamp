@@ -78,11 +78,13 @@ function parsePolynomial(polynomial) {
         return [];
     }
 
-    // Iterar sobre cada término encontrado
+    // Iterar sobre cada término encontrado en la expresión polinómica
     for (let match of matches) {
         // Si el término contiene 'X', es un término con variable
         if (match.includes('X')) {
             // Extraer coeficiente y exponente usando otra expresión regular
+            // La expresión regular descompone el término en partes:
+            // ([+-]?\d*\.?\d*)X(?:\((-?\d+)\)|(\d+))?
             let [_, coefficient, power1, power2] = match.match(/([+-]?\d*\.?\d*)X(?:\((-?\d+)\)|(\d+))?/);
 
             // Procesar el coeficiente
@@ -90,8 +92,8 @@ function parsePolynomial(polynomial) {
             // Si es '-', el coeficiente es -1
             // En otro caso, convertir a número flotante
             coefficient = coefficient === '' || coefficient === '+' ? 1 : 
-                          coefficient === '-' ? -1 : 
-                          parseFloat(coefficient);
+                        coefficient === '-' ? -1 : 
+                        parseFloat(coefficient);
 
             // Procesar el exponente
             // Si power1 está definido, usar ese (exponente entre paréntesis)
@@ -118,22 +120,31 @@ function parsePolynomial(polynomial) {
 function buildArray(terms) {
     // Limitar el número de filas a 30 o el número de términos, lo que sea menor
     const rows = Math.min(30, terms.length);
-    // Crear un array de 30 filas inicializado con pares [0, 0]
+
+    // Crear un array de 'rows' filas inicializado con pares [0, 0]
+    // 'fill(0)' llena el array con ceros inicialmente
+    // 'map(() => [0, 0])' convierte cada cero en un par [0, 0]
     let polynomialArray = new Array(rows).fill(0).map(() => [0, 0]);
 
     // Copiar los términos en el array, hasta un máximo de 30 términos
+    // Iterar sobre los términos del polinomio
     for (let i = 0; i < terms.length && i < rows; i++) {
+        // Asignar el coeficiente del término a la primera posición de la fila
         polynomialArray[i][0] = terms[i][0]; // Coeficiente
+        // Asignar la potencia del término a la segunda posición de la fila
         polynomialArray[i][1] = terms[i][1]; // Potencia
     }
 
-    // Devolver el array bidimensional
+    // Devolver el array bidimensional que representa el polinomio
     return polynomialArray;
 }
 
 // Paso 3: Impresión del arreglo en consola
 function printArray(array) {
+    // Imprimir encabezado para clarificar el contenido del array
     console.log("{Coeficiente, Potencia}");
+
+    // Iterar sobre cada fila del array
     for (let row of array) {
         // Imprimir solo términos no nulos
         if (row[0] !== 0 || row[1] !== 0) {
@@ -144,22 +155,26 @@ function printArray(array) {
 
 // Paso 4: Lectura de rango e incremento de forma sincrónica
 function readRange() {
+    // Bucle infinito que se ejecuta hasta que el usuario ingrese valores válidos
     while (true) {
+        // Solicitar al usuario que ingrese el rango de inicio
         const start = prompt('Ingrese el rango de inicio: ');
+        // Solicitar al usuario que ingrese el rango de fin
         const end = prompt('Ingrese el rango de fin: ');
+        // Solicitar al usuario que ingrese el incremento
         const increment = prompt('Ingrese el incremento: ');
 
         // Convertir las entradas a números enteros
-        const startNum = parseInt(start);
-        const endNum = parseInt(end);
-        const incrementNum = parseInt(increment);
+        const startNum = parseInt(start); // Convierte la entrada de inicio a número entero
+        const endNum = parseInt(end); // Convierte la entrada de fin a número entero
+        const incrementNum = parseInt(increment); // Convierte la entrada de incremento a número entero
 
-        // Validar que las entradas sean números y que el incremento no sea cero
+        // Validar que las entradas sean números válidos y que el incremento no sea cero
         if (!isNaN(startNum) && !isNaN(endNum) && !isNaN(incrementNum) && incrementNum !== 0) {
-            // Devolver un objeto con los valores válidos
+            // Si todas las entradas son válidas, devolver un objeto con los valores convertidos
             return { start: startNum, end: endNum, increment: incrementNum };
         } else {
-            // Mostrar un error si las entradas no son válidas
+            // Si alguna entrada no es válida, mostrar un mensaje de error
             console.error("Por favor ingrese valores válidos. El incremento no puede ser cero.");
         }
     }
@@ -174,6 +189,7 @@ function evaluatePolynomial(terms, x) {
 
 function buildValueTable(start, end, increment, terms) {
     let table = [];
+
     // Construir una tabla de valores para el rango especificado
     for (let x = start; x <= end; x += increment) {
         // Evaluar el polinomio en x y agregar el par {x, y} a la tabla
@@ -183,49 +199,89 @@ function buildValueTable(start, end, increment, terms) {
     return table;
 }
 
+// Función que construye una tabla de evaluación para los puntos dados y los términos del polinomio
+function buildEvaluationTable(valueTable, terms) {
+    // Inicializar la tabla de evaluación como un array vacío
+    let evaluationTable = [];
+
+    // Iterar sobre cada punto en la tabla de valores
+    for (let point of valueTable) {
+        // Construir una cadena de evaluación para el punto actual
+        let evaluationString = terms.map(([coefficient, power]) =>
+            `${coefficient} * (${point.x}^${power})`
+        ).join(' + ');
+
+        // Evaluar el polinomio en el valor x del punto actual
+        let evaluation = evaluatePolynomial(terms, point.x);
+
+        // Añadir el resultado a la tabla de evaluación
+        evaluationTable.push({
+            x: point.x,             // El valor x del punto
+            evaluacion: evaluationString, // La cadena que muestra cómo se evalúa el polinomio en x
+            y: evaluation           // El resultado de evaluar el polinomio en x
+        });
+    }
+
+    // Devolver la tabla de evaluación completa
+    return evaluationTable;
+}
+
 // Paso 6: Graficar el polinomio en modo texto
 function plotPolynomial(valueTable) {
+    // Definir el tamaño de la gráfica en filas y columnas
     const rows = 24;
     const cols = 80;
+
+    // Crear una matriz para representar la gráfica, inicializada con espacios en blanco
     const graph = Array.from({ length: rows }, () => Array(cols).fill(' '));
 
+    // Calcular el rango de los valores de X e Y en la tabla de valores
     let minX = Math.min(...valueTable.map(point => point.x));
     let maxX = Math.max(...valueTable.map(point => point.x));
     let minY = Math.min(...valueTable.map(point => point.y));
     let maxY = Math.max(...valueTable.map(point => point.y));
 
+    // Calcular las escalas para ajustar los puntos a las dimensiones de la gráfica
     let xScale = (cols - 1) / (maxX - minX);
     let yScale = (rows - 1) / (maxY - minY);
 
-    // Ajustar las posiciones de los ejes para que estén dentro del rango
+    // Ajustar las posiciones de los ejes X y Y para que estén dentro del rango
     const yAxisPos = Math.max(0, Math.min(cols - 1, Math.round((0 - minX) * xScale)));
     const xAxisPos = Math.max(0, Math.min(rows - 1, rows - 1 - Math.round((0 - minY) * yScale)));
 
-    // Graficar cada punto
+    // Graficar cada punto de la tabla de valores
     for (let point of valueTable) {
+        // Convertir las coordenadas del punto a posiciones en la gráfica
         let xPos = Math.round((point.x - minX) * xScale);
         let yPos = rows - 1 - Math.round((point.y - minY) * yScale);
+
+        // Verificar que el punto esté dentro de los límites de la gráfica
         if (yPos >= 0 && yPos < rows && xPos >= 0 && xPos < cols) {
-            graph[yPos][xPos] = '*';
+            graph[yPos][xPos] = '*';  // Marcar el punto en la gráfica
         }
     }
 
-    // Añadir ejes X y Y
+    // Añadir el eje Y (vertical) a la gráfica
     for (let i = 0; i < rows; i++) {
         graph[i][yAxisPos] = '|';
     }
+
+    // Añadir el eje X (horizontal) a la gráfica
     for (let j = 0; j < cols; j++) {
         graph[xAxisPos][j] = '-';
     }
+
+    // Marcar la intersección de los ejes X e Y
     graph[xAxisPos][yAxisPos] = '+';
 
     // Añadir etiquetas en el eje Y
     for (let point of valueTable) {
         let yPos = rows - 1 - Math.round((point.y - minY) * yScale);
-        let label = point.y.toFixed(1).padStart(5);
+        let label = point.y.toFixed(1).padStart(5);  // Formatear el valor de Y con un ancho fijo
+
         for (let j = 0; j < label.length; j++) {
             if (yAxisPos - 6 + j >= 0 && yAxisPos - 6 + j < cols && yPos >= 0 && yPos < rows) {
-                graph[yPos][yAxisPos - 6 + j] = label[j];
+                graph[yPos][yAxisPos - 6 + j] = label[j];  // Añadir la etiqueta en la posición correspondiente
             }
         }
     }
@@ -233,57 +289,52 @@ function plotPolynomial(valueTable) {
     // Añadir etiquetas en el eje X
     for (let point of valueTable) {
         let xPos = Math.round((point.x - minX) * xScale);
-        let label = point.x.toFixed(1).padStart(5);
+        let label = point.x.toFixed(1).padStart(5);  // Formatear el valor de X con un ancho fijo
+
         for (let i = 0; i < label.length; i++) {
             if (xAxisPos + 1 < rows && xPos + i < cols) {
-                graph[xAxisPos + 1][xPos + i] = label[i];
+                graph[xAxisPos + 1][xPos + i] = label[i];  // Añadir la etiqueta en la posición correspondiente
             }
         }
     }
 
     // Imprimir la gráfica
     for (let row of graph) {
-        console.log(row.join(''));
+        console.log(row.join(''));  // Unir los caracteres de cada fila y mostrar la fila en consola
     }
 }
 
-// Función para imprimir la tabla de tanteo
-function buildEvaluationTable(valueTable, terms) {
-    let evaluationTable = [];
-    for (let point of valueTable) {
-        let evaluationString = terms.map(([coefficient, power]) => 
-            `${coefficient} * (${point.x}^${power})`
-        ).join(' + ');
-        let evaluation = evaluatePolynomial(terms, point.x);
-        evaluationTable.push({
-            x: point.x,
-            evaluacion: evaluationString,
-            y: evaluation
-        });
-    }
-    return evaluationTable;
-}
+/*--------------------------------------------------------------------------------------*/
 
-// Ejemplo de uso
+// Ejecución del programa
+// Obtención del polinomio por parte del usuario
 let polynomial = prompt("Ingrese el polinomio: ");
 let terms = parsePolynomial(polynomial);
+
+// Verifica si luego de hacer el parse al polinomio este queda vacío o no apto para posterior ejecución
 if (terms.length === 0) {
     console.error("No se pudo parsear el polinomio. Terminando el programa.");
     return;
 }
-let polynomialArray = buildArray(terms);
 
+// Construcción de arreglo bidimensional {Coeficiente, Potencia}
+let polynomialArray = buildArray(terms);
 console.log("Arreglo bidimensional:");
 printArray(polynomialArray);
 
+// Lectura del rango y el incremento por parte del usuario
 let { start, end, increment } = readRange();
+
+// Construcción de la tabla de valores evaluando el polinomio en el rango especificado
 let valueTable = buildValueTable(start, end, increment, terms);
 console.log("Tabla de valores:");
 console.table(valueTable);
 
+// Construcción y despliegue de la tabla de tanteo
 console.log("Tabla de tanteo:");
 let evaluationTable = buildEvaluationTable(valueTable, terms);
 console.table(evaluationTable);
 
+// Despliegue gráfico del polinomio en modo texto
 console.log("Gráfica del polinomio:");
 plotPolynomial(valueTable);
