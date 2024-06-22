@@ -1,7 +1,7 @@
 /* --------------------------------------------------
 ● Fecha y Hora de publicación: [21/06/2024]
 ● Versión de su código: [0.1]
-● Autores: Diego Alejandro Giraldo Ascencio
+● Autores: Diego Alejandro Giraldo Ascencio, Rodrigo García
 ● Nombre del lenguaje utilizado: [JavaScript]
 ● Versión del lenguaje utilizado: [ECMAScript 6]
 ● Universidad Tecnológica de Pereira
